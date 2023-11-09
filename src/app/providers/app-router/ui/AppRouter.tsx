@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import c from './AppRouter.module.scss';
 import type { RouteConfig } from 'app/providers/app-router/config';

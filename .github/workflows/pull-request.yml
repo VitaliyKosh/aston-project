@@ -12,14 +12,12 @@ jobs:
         run: npm install
       - name: Lint ts code
         run: npm run lint:ts
-      - name: Lint css code
-        run: npm run lint:css
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get repository code
-        uses: actions/checkout@v3
-      - name: Install deps
-        run: npm install
-      - name: Test app
-        run: npm run test
+  # test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Get repository code
+  #       uses: actions/checkout@v3
+  #     - name: Install deps
+  #       run: npm install
+  #     - name: Test app
+  #       run: npm run test

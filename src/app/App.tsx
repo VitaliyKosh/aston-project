@@ -1,20 +1,9 @@
-import { type FC } from 'react';
 import './styles/index.scss';
 import { classNames } from 'shared/lib/class-names';
-// import { PageLoader } from 'widgets/PageLoader'
-// import { AppRouter } from './providers/AppRouter'
-// import { Header } from 'widgets/Header'
+import { type RC } from 'shared/types/component';
 
-const App: FC = () => {
+export const App: RC = () => {
     return (
-        // TODO
-        <div className={classNames('app')}>
-            {/* <Header />
-            <Suspense fallback={<PageLoader />}>
-                <AppRouter />
-            </Suspense> */}
-        </div>
+        <div className={classNames('app')}></div>
     );
 };
-
-export default App;

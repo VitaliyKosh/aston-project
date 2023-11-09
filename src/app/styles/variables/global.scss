@@ -1,54 +1,52 @@
 :root {
-    // fonts
+  // fonts
 
-    --font-family-main: helvetica, "Times New Roman", serif;
-    --font-size-s: 12px;
-    --font-line-s: 16px;
-    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
-    --font-size-m: 16px;
-    --font-line-m: 24px;
-    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-    --font-size-l: 20px;
-    --font-line-l: 28px;
-    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-    --font-size-xl: 24px;
-    --font-line-xl: 32px;
-    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+  --font-family-main: helvetica, "Times New Roman", serif;
+  --font-size-s: 12px;
+  --font-line-s: 16px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  --font-size-l: 20px;
+  --font-line-l: 28px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --font-size-xl: 24px;
+  --font-line-xl: 32px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
-    // стиль
+  // стиль
 
-    --border-radius: 10px;
-    --box-shadow: 0 0 10px 5px #00000015;
-    --box-shadow-inset: inset -2px -2px 7px 0px #00000020;
-    --page-box-shadow: 0 0 30px 5px #00000015;
+  --border-radius: 10px;
+  --box-shadow: 0 0 10px 5px #00000015;
+  --box-shadow-inset: inset -2px -2px 7px 0px #00000020;
+  --page-box-shadow: 0 0 30px 5px #00000015;
 
-    // Размеры
+  // Размеры
 
-    // --header-height: 40px;
-    // --navbar-height: 40px;
+  // --header-height: 40px;
+  // --navbar-height: 40px;
 
-    //Цвета
+  //Цвета
 
-    --bg-color: rgb(243, 247, 250); 
-    --inverted-bg-color: rgb(10, 40, 150);
+  --bg-color: rgb(243, 247, 250);
+  --inverted-bg-color: rgb(10, 40, 150);
 
-    --on-bg-color: rgb(255, 255, 255); 
-    --on-bg-color-active: rgb(10, 40, 150);
-    --inverted-on-bg-color: rgb(146, 52, 52);
-    --inverted-light-on-bg-color: rgb(168, 168, 168);
+  --on-bg-color: rgb(255, 255, 255);
+  --on-bg-color-active: rgb(10, 40, 150);
+  --inverted-on-bg-color: rgb(146, 52, 52);
+  --inverted-light-on-bg-color: rgb(168, 168, 168);
 
-    --primary-color: rgb(10, 40, 150);
-    --primary-color-active: rgb(10, 40, 150);
+  --primary-color: rgb(10, 40, 150);
+  --primary-color-active: rgb(10, 40, 150);
 
-    --inverted-primary-color: rgb(255 255 255);
-    --inverted-secondary-color: rgb(0 0 0);
+  --inverted-primary-color: rgb(255 255 255);
+  --inverted-secondary-color: rgb(0 0 0);
 
-    --link-color: #2845F5;;
-    --link-color-active: #3047F7
+  --link-color: #2845f5;
+  --link-color-active: #3047f7 --warning-color: rgb(255 225 100);
 
-    --warning-color: rgb(255 225 100);
+  --light-bg-text-color: rgb(200 200 200);
 
-    --light-bg-text-color: rgb(200 200 200);
-
-    --input-color: rgb(255 255 255);
+  --input-color: rgb(255 255 255);
 }

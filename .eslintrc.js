@@ -4,23 +4,23 @@ module.exports = {
         es2021: true,
         jest: true
     },
-    extends: [
-        'plugin:react/recommended',
-        'standard-with-typescript'
-    ],
+    extends: ['plugin:react/recommended', 'standard-with-typescript'],
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
         project: ['./tsconfig.json']
     },
-    plugins: [
-        'react'
-    ],
+    plugins: ['react'],
     rules: {
         semi: 'off',
         '@typescript-eslint/semi': ['error', 'always'],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
+        'no-console': ['error', { allow: ['warn', 'error'] }],
+        'react/jsx-no-useless-fragment': 'error',
+        '@typescript-eslint/import/prefer-default-export': 'off',
+        'no-unused-expressions': 'off',
+        '@typescript-eslint/no-unused-expressions': 'error',
         indent: ['error', 4],
         '@typescript-eslint/indent': ['error', 4],
         'react/jsx-filename-extension': [
@@ -95,15 +95,16 @@ module.exports = {
         'require-yield': 'error', // требовать yield для функции-генератора
         'use-isnan': 'error', // требовать isNaN() для проверки NaN
         'valid-typeof': 'error', // требовать для typeof допустимых строк "string", "undefined", "object"
-        'max-len': ['error', {
-            ignoreComments: true,
-            code: 100
-        }]
+        'max-len': [
+            'error',
+            {
+                ignoreComments: true,
+                code: 130
+            }
+        ]
     },
     globals: {
         __IS_DEV__: true
     },
-    overrides: [
-
-    ]
+    overrides: []
 };

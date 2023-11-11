@@ -1,0 +1,1 @@
+export { PostApiRepository } from './api';

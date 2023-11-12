@@ -1,15 +1,11 @@
 import { type PostCard } from '../../models/post-card-list';
 import { type PostApiRepository } from '../../repositories/post-card-list';
 
-interface Dependencies {
-    apiRepository: PostApiRepository
-};
-
-export class PostCardListDataService {
+export class PostCardListApiService {
     readonly apiRepository: PostApiRepository;
 
-    constructor (deps: Dependencies) {
-        this.apiRepository = deps.apiRepository;
+    constructor (apiRepository: PostApiRepository) {
+        this.apiRepository = apiRepository;
     }
 
     public async getPostCardList (): Promise<PostCard[]> {

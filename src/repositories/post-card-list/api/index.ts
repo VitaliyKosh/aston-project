@@ -10,10 +10,10 @@ export class PostCardListApiRepository {
             url: '/postCards'
         });
 
-        return this.toDomain(postsDto);
+        return this.toModel(postsDto);
     }
 
-    public toDomain (postCardListDto: GetPostCardApiDto): PostCard[] {
+    public toModel (postCardListDto: GetPostCardApiDto): PostCard[] {
         return postCardListDto.postCards;
     }
 }

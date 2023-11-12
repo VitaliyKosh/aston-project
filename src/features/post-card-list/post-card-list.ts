@@ -1,14 +1,14 @@
-import { type PostDataService, type PostStoreService } from '../../services/post';
+import { type PostCardListDataService, type PostCardListStoreService } from '../../services/post-card-list';
 import { type PostCard, type PostCardListModel } from '../../models/post-card-list';
 
 export interface Dependencies {
-    dataService: PostDataService
-    storeService: PostStoreService
+    dataService: PostCardListDataService
+    storeService: PostCardListStoreService
 };
 
 export class PostCardList implements PostCardListModel {
-    private readonly dataService: PostDataService;
-    private readonly storeService: PostStoreService;
+    private readonly dataService: PostCardListDataService;
+    private readonly storeService: PostCardListStoreService;
 
     constructor (deps: Dependencies) {
         this.dataService = deps.dataService;

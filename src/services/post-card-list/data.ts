@@ -1,11 +1,11 @@
 import { type PostCard } from '../../models/post-card-list';
-import { type PostApiRepository } from '../../repositories/post';
+import { type PostApiRepository } from '../../repositories/post-card-list';
 
 interface Dependencies {
     apiRepository: PostApiRepository
 };
 
-export class PostDataService {
+export class PostCardListDataService {
     readonly apiRepository: PostApiRepository;
 
     constructor (deps: Dependencies) {

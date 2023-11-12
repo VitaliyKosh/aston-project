@@ -1,15 +1,15 @@
-import { PostApiRepository } from '../../repositories/post';
-import { PostStoreRepository } from '../../repositories/post/store';
-import { PostDataService, PostStoreService } from '../../services/post';
+import { PostApiRepository } from '../../repositories/post-card-list';
+import { PostStoreRepository } from '../../repositories/post-card-list/store';
+import { PostCardListDataService, PostCardListStoreService } from '../../services/post-card-list';
 import { PostCardList } from './post-card-list';
 
 const postApiRepository = new PostApiRepository();
 const postStoreRepository = new PostStoreRepository();
 
-const postDataService = new PostDataService({
+const postDataService = new PostCardListDataService({
     apiRepository: postApiRepository
 });
-const postStoreService = new PostStoreService(postStoreRepository);
+const postStoreService = new PostCardListStoreService(postStoreRepository);
 
 export const postCardList = new PostCardList({
     dataService: postDataService,

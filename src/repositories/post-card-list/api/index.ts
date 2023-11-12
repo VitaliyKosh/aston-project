@@ -2,7 +2,7 @@ import { type PostCard } from '../../../models/post-card-list';
 import { fetchApi } from '../../../shared/lib/network';
 import { type GetPostCardApiDto } from './types';
 
-export class PostApiRepository {
+export class PostCardListApiRepository {
     private readonly apiLibrary = fetchApi;
 
     public async getPostCardList (): Promise<PostCard[]> {

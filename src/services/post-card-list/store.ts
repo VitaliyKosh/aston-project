@@ -1,7 +1,7 @@
 import { type PostCard } from '../../models/post-card-list';
-import { type PostStoreRepository } from '../../repositories/post/store';
+import { type PostStoreRepository } from '../../repositories/post-card-list/store';
 
-export class PostStoreService {
+export class PostCardListStoreService {
     readonly storeRepository: PostStoreRepository;
 
     constructor (storeRepository: PostStoreRepository) {

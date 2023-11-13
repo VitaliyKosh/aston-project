@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import c from './AppRouter.module.scss';
+import c from './app-router.module.scss';
 import type { RouteConfig } from 'app/providers/app-router/config';
 import { type RC } from 'shared/types/component';
 

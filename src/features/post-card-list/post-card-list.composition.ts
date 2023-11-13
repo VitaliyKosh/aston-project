@@ -4,10 +4,10 @@ import { PostCardListStoreApiService } from '../../services/post-card-list';
 import { PostCardList } from './post-card-list';
 
 export const createPostCardListComposition = (store: AppStore): PostCardList => {
-    const postStoreRepository = new PostStoreApiRepository(store);
-    const postStoreService = new PostCardListStoreApiService(postStoreRepository);
+    const postStoreApiRepository = new PostStoreApiRepository(store);
+    const postStoreApiService = new PostCardListStoreApiService(postStoreApiRepository);
 
     return new PostCardList({
-        storeService: postStoreService
+        storeApiService: postStoreApiService
     });
 };

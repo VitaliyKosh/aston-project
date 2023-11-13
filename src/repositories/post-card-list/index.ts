@@ -1,1 +1,1 @@
-export { PostCardListApiRepository as PostApiRepository } from './api';
+export { PostStoreApiRepository } from './store-api';

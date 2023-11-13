@@ -1,2 +1,1 @@
-export { PostCardListStoreService } from './store';
-export { PostCardListApiService } from './api';
+export { PostCardListStoreApiService } from './store-api';

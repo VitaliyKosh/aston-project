@@ -1,15 +1,13 @@
-import { PostApiRepository } from '../../repositories/post-card-list';
-import { PostStoreRepository } from '../../repositories/post-card-list/store';
-import { PostCardListApiService, PostCardListStoreService } from '../../services/post-card-list';
+import { type AppStore } from 'shared/store/store';
+import { PostStoreApiRepository } from '../../repositories/post-card-list/store-api';
+import { PostCardListStoreApiService } from '../../services/post-card-list';
 import { PostCardList } from './post-card-list';
 
-const postApiRepository = new PostApiRepository();
-const postStoreRepository = new PostStoreRepository();
+export const createPostCardListComposition = (store: AppStore): PostCardList => {
+    const postStoreApiRepository = new PostStoreApiRepository(store);
+    const postStoreApiService = new PostCardListStoreApiService(postStoreApiRepository);
 
-const postDataService = new PostCardListApiService(postApiRepository);
-const postStoreService = new PostCardListStoreService(postStoreRepository);
-
-export const postCardList = new PostCardList({
-    dataService: postDataService,
-    storeService: postStoreService
-});
+    return new PostCardList({
+        storeApiService: postStoreApiService
+    });
+};

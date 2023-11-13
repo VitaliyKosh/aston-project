@@ -1,1 +1,1 @@
-export { postCardList } from './post-card-list.composition';
+export { createPostCardListComposition } from './post-card-list.composition';

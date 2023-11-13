@@ -1,11 +1,7 @@
-declare module 'react-manifest';
+import { type Application } from 'features/application';
 
-declare module '*.scss' {
-  type IClassNames = Record<string, string>;
-  const classNames: IClassNames;
-  export = classNames;
+declare global {
+    interface Window { app: Application }
 }
 
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.jpeg';
+export {};

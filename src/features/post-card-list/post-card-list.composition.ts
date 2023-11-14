@@ -1,13 +1,17 @@
-import { type AppStore } from 'repositories/store';
 import { PostStoreApiRepository } from '../../repositories/post-card-list/store-api';
 import { PostCardListStoreApiService } from '../../services/post-card-list';
-import { PostCardList } from './post-card-list';
+import { PostCardListFeature } from './post-card-list';
+import { type ReduxStoreApi } from 'repositories/store';
 
-export const createPostCardListComposition = (store: AppStore): PostCardList => {
-    const postStoreApiRepository = new PostStoreApiRepository(store);
-    const postStoreApiService = new PostCardListStoreApiService(postStoreApiRepository);
+interface Dependencies {
+    storeApi: ReduxStoreApi
+};
 
-    return new PostCardList({
-        storeApiService: postStoreApiService
+export const createPostCardListComposition = (deps: Dependencies): PostCardListFeature => {
+    const storeApiRepository = new PostStoreApiRepository(deps.storeApi);
+    const storeApiService = new PostCardListStoreApiService(storeApiRepository);
+
+    return new PostCardListFeature({
+        storeApiService
     });
 };

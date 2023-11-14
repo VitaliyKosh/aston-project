@@ -1,8 +1,8 @@
 import { type PostCard } from 'models/post-card-list';
 import { type PostStoreApiRepository } from 'repositories/post-card-list/store-api';
-import { StoreApiService } from 'services/types';
+import { ApiService } from 'services/types';
 
-export class PostCardListStoreApiService extends StoreApiService {
+export class PostCardListStoreApiService extends ApiService {
     storeApiRepository: PostStoreApiRepository;
 
     public async readModel (count: number): Promise<PostCard[]> {

@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { postCardListSlice } from '../post-card-list/store-slice';
+import { userReducer } from 'repositories/user/store-api/store-slice';
 
 const rootReducer = combineReducers({
+    userReducer,
     [postCardListSlice.reducerPath]: postCardListSlice.reducer
 });
 
@@ -17,4 +19,4 @@ export const setupStore = () => {
 };
 
 // Автоматический вывод типа
-export type AppStore = ReturnType<typeof setupStore>;
+export type ReduxStoreApi = ReturnType<typeof setupStore>;

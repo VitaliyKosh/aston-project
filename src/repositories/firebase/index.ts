@@ -7,6 +7,7 @@ import {
     createUserWithEmailAndPassword,
     signOut
 } from 'firebase/auth';
+import { ApiRepository } from 'repositories/types';
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyAsz48ayjvoOhd90CPn31tGCAxWKDlWn2M',
@@ -37,4 +38,12 @@ export class FirebaseApi {
     async signOut (): Promise<void> {
         await signOut(this.auth);
     };
+}
+
+export abstract class FirebaseApiRepository extends ApiRepository {
+    readonly api: FirebaseApi;
+
+    constructor (api: FirebaseApi) {
+        super(api);
+    }
 }

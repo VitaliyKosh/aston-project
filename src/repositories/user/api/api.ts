@@ -1,17 +1,16 @@
 import { FirebaseError } from 'firebase/app';
-import { FirebaseApiRepository } from 'repositories/types';
 import { UserAuthError } from './errors';
 import { type User } from 'models/user';
 import { type UserApiRepository } from './types';
+import { FirebaseApiRepository } from 'repositories/firebase';
+import { type UserCredential } from 'firebase/auth';
 
-export class FirebaseUserApiRepository extends FirebaseApiRepository implements UserApiRepository {
+export class UserFirebaseApiRepository extends FirebaseApiRepository implements UserApiRepository {
     public async signIn (email: string, password: string): Promise<User> {
         try {
             const userCredential = await this.api.signIn(email, password);
-            return {
-                id: userCredential.user.uid,
-                email: userCredential.user.email
-            };
+            const user = UserFirebaseApiRepository.userCredentialToModel(userCredential);
+            return user;
         } catch (e) {
             if (e instanceof FirebaseError) {
                 throw new UserAuthError(e);
@@ -22,10 +21,8 @@ export class FirebaseUserApiRepository extends FirebaseApiRepository implements 
     public async signUp (email: string, password: string): Promise<User> {
         try {
             const userCredential = await this.api.signUp(email, password);
-            return {
-                id: userCredential.user.uid,
-                email: userCredential.user.email
-            };
+            const user = UserFirebaseApiRepository.userCredentialToModel(userCredential);
+            return user;
         } catch (e) {
             if (e instanceof FirebaseError) {
                 throw new UserAuthError(e);
@@ -41,5 +38,12 @@ export class FirebaseUserApiRepository extends FirebaseApiRepository implements 
                 throw new UserAuthError(e);
             }
         }
+    }
+
+    private static userCredentialToModel (userCredential: UserCredential): User {
+        return {
+            id: userCredential.user.uid,
+            email: userCredential.user.email
+        };
     }
 }

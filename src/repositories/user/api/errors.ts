@@ -1,13 +1,12 @@
 import { AuthErrorCodes } from 'firebase/auth';
 import { type FirebaseError } from 'firebase/app';
-import { ApiError } from 'repositories/types';
 
-export class UserAuthError extends ApiError {
+export class UserAuthError extends Error {
     static types = AuthErrorCodes;
     type: string;
 
     constructor (e: FirebaseError) {
-        super(e);
+        super(e.message);
         this.type = e.code;
     }
 }

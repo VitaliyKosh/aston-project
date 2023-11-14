@@ -1,16 +1,7 @@
-import { type ApiRepository, ReduxApiRepository } from 'repositories/types';
 import { userSignedIn, userSignedOut, userSignedUp, userSignsIn, userSignsUp } from './store-slice';
 import { type User } from 'models/user';
-
-export interface UserStoreApiRepository extends ApiRepository {
-    userSignsUp: () => void
-    userSignedUp: (user: User) => void
-    userSignsIn: () => void
-    userSignedIn: (user: User) => void
-    userSignsOut: () => void
-    userSignedOut: () => void
-    getUser: () => User
-};
+import { ReduxApiRepository } from 'repositories/redux';
+import { type UserStoreApiRepository } from './types';
 
 export class ReduxUserStoreApiRepository extends ReduxApiRepository implements UserStoreApiRepository {
     public userSignsUp (): void {

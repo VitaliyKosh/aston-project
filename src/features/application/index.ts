@@ -1,5 +1,5 @@
 import { type UserModel } from 'models/user';
-import { setupStore, type ReduxStoreApi } from 'repositories/store';
+import { setupStore, type ReduxStoreApi } from 'repositories/redux';
 import { createPostCardListComposition } from '../post-card-list';
 import { FirebaseApi } from 'repositories/firebase';
 import { createUserComposition } from 'features/user';

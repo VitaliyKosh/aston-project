@@ -1,7 +1,7 @@
 import { userSignedIn, userSignedOut, userSignedUp, userSignsIn, userSignsUp } from './store-slice';
 import { type User } from 'models/user';
 import { ReduxApiRepository } from 'repositories/redux';
-import { type UserStoreApiRepository } from './types';
+import { type UserStoreApiRepository } from '../types';
 
 export class ReduxUserStoreApiRepository extends ReduxApiRepository implements UserStoreApiRepository {
     public userSignsUp (): void {

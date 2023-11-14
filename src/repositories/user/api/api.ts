@@ -1,7 +1,7 @@
 import { FirebaseError } from 'firebase/app';
 import { UserAuthError } from './errors';
 import { type User } from 'models/user';
-import { type UserApiRepository } from './types';
+import { type UserApiRepository } from '../types';
 import { FirebaseApiRepository } from 'repositories/firebase';
 import { type UserCredential } from 'firebase/auth';
 

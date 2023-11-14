@@ -13,7 +13,7 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
             return user;
         } catch (e) {
             if (e instanceof FirebaseError) {
-                throw new UserAuthError(e);
+                throw new UserAuthError(e.code);
             }
         }
     }
@@ -25,7 +25,7 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
             return user;
         } catch (e) {
             if (e instanceof FirebaseError) {
-                throw new UserAuthError(e);
+                throw new UserAuthError(e.code);
             }
         }
     }
@@ -35,7 +35,7 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
             await this.api.signOut();
         } catch (e) {
             if (e instanceof FirebaseError) {
-                throw new UserAuthError(e);
+                throw new UserAuthError(e.code);
             }
         }
     }

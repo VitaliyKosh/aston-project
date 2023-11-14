@@ -1,23 +1,30 @@
-import { type AppStore, setupStore } from 'repositories/store';
+import { type UserModel } from 'models/user';
+import { setupStore, type ReduxStoreApi } from 'repositories/store';
 import { createPostCardListComposition } from '../post-card-list';
-import { type PostCardList } from 'features/post-card-list/post-card-list';
+import { FirebaseApi } from 'repositories/firebase';
+import { createUserComposition } from 'features/user';
+import { type PostCardListModel } from 'models/post-card-list';
 
 export class Application {
-    store: AppStore;
+    #reduxStoreApi: ReduxStoreApi;
+    #firebaseApi: FirebaseApi;
 
     // inputs
-    postCardList: PostCardList;
+    postCardList: PostCardListModel;
+    user: UserModel;
 
     constructor () {
-        this.setupStore();
+        this.setupApi();
         this.setupInputs();
     }
 
-    private setupStore (): void {
-        this.store = setupStore();
+    private setupApi (): void {
+        this.#reduxStoreApi = setupStore();
+        this.#firebaseApi = new FirebaseApi();
     }
 
     private setupInputs (): void {
-        this.postCardList = createPostCardListComposition(this.store);
+        this.postCardList = createPostCardListComposition({ storeApi: this.#reduxStoreApi });
+        this.user = createUserComposition({ api: this.#firebaseApi, storeApi: this.#reduxStoreApi });
     }
 }

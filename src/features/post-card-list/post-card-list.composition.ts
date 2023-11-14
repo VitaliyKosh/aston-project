@@ -1,7 +1,7 @@
 import { PostStoreApiRepository } from '../../repositories/post-card-list/store-api';
 import { PostCardListStoreApiService } from '../../services/post-card-list';
 import { PostCardListFeature } from './post-card-list';
-import { type ReduxStoreApi } from 'repositories/store';
+import { type ReduxStoreApi } from 'repositories/redux';
 
 interface Dependencies {
     storeApi: ReduxStoreApi

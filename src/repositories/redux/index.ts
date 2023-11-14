@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { postCardListSlice } from '../post-card-list/store-slice';
 import { userReducer } from 'repositories/user/store-api/store-slice';
+import { ApiRepository } from 'repositories/types';
 
 const rootReducer = combineReducers({
     userReducer,
@@ -20,3 +21,11 @@ export const setupStore = () => {
 
 // Автоматический вывод типа
 export type ReduxStoreApi = ReturnType<typeof setupStore>;
+
+export abstract class ReduxApiRepository extends ApiRepository {
+    readonly api: ReduxStoreApi;
+
+    constructor (api: ReduxStoreApi) {
+        super(api);
+    }
+}

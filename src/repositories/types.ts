@@ -1,9 +1,12 @@
-import { type AppStore } from 'repositories/store';
+import { type ReduxStoreApi } from 'repositories/redux';
+import { type FirebaseApi } from './firebase';
 
-export abstract class StoreApiRepository {
-    readonly store: AppStore;
+export type Api = FirebaseApi | ReduxStoreApi;
 
-    constructor (store: AppStore) {
-        this.store = store;
+export abstract class ApiRepository {
+    readonly api: Api;
+
+    constructor (api: Api) {
+        this.api = api;
     }
 }

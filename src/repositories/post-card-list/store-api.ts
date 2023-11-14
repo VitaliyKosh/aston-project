@@ -1,10 +1,10 @@
-import { postCardListAPI } from 'shared/store/reducers/post-card-list-slice';
-import { type PostCard } from '../../models/post-card-list';
+import { postCardListSlice } from './store-slice';
+import { type PostCard } from 'models/post-card-list';
 import { StoreApiRepository } from 'repositories/types';
 
 export class PostStoreApiRepository extends StoreApiRepository {
     public async readModel (count: number): Promise<PostCard[]> {
-        const { data: postCardList } = await this.store.dispatch(postCardListAPI.endpoints.fetchPostCardList.initiate(count));
-        return postCardList;
+        const { data } = await this.store.dispatch(postCardListSlice.endpoints.fetchPostCardList.initiate(count));
+        return data.postCards;
     }
 }

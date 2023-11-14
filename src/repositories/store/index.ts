@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { postCardListAPI } from './reducers/post-card-list-slice';
+import { postCardListSlice } from '../post-card-list/store-slice';
 
 const rootReducer = combineReducers({
-    [postCardListAPI.reducerPath]: postCardListAPI.reducer
+    [postCardListSlice.reducerPath]: postCardListSlice.reducer
 });
 
 // Слишком сложный тип, он должен выводиться автоматически
@@ -12,7 +12,7 @@ export const setupStore = () => {
         reducer: rootReducer,
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware()
-                .concat(postCardListAPI.middleware)
+                .concat(postCardListSlice.middleware)
     });
 };
 

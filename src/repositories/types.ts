@@ -1,4 +1,4 @@
-import { type AppStore } from 'shared/store/store';
+import { type AppStore } from 'repositories/store';
 
 export abstract class StoreApiRepository {
     readonly store: AppStore;

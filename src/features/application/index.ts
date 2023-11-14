@@ -1,4 +1,4 @@
-import { type AppStore, setupStore } from 'shared/store/store';
+import { type AppStore, setupStore } from 'repositories/store';
 import { createPostCardListComposition } from '../post-card-list';
 import { type PostCardList } from 'features/post-card-list/post-card-list';
 

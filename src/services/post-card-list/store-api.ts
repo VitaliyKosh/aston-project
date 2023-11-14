@@ -1,5 +1,5 @@
 import { type PostCard } from 'models/post-card-list';
-import { type PostStoreApiRepository } from 'repositories/post-card-list/store-api';
+import { type PostStoreApiRepository } from 'repositories/post-card-list/store-api/store-api';
 import { ApiService } from 'services/types';
 
 export class PostCardListStoreApiService extends ApiService {

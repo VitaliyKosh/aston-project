@@ -1,4 +1,4 @@
-import { PostStoreApiRepository } from '../../repositories/post-card-list/store-api';
+import { PostStoreApiRepository } from '../../repositories/post-card-list/store-api/store-api';
 import { PostCardListStoreApiService } from '../../services/post-card-list';
 import { PostCardListFeature } from './post-card-list';
 import { type ReduxStoreApi } from 'repositories/redux';

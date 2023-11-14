@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { postCardListSlice } from '../post-card-list/store-slice';
+import { postCardListSlice } from '../post-card-list/store-api/store-slice';
 import { userReducer } from 'repositories/user/store-api/store-slice';
 import { ApiRepository } from 'repositories/types';
 

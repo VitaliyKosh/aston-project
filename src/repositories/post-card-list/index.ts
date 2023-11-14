@@ -1,1 +1,1 @@
-export { PostStoreApiRepository } from './store-api';
+export { PostStoreApiRepository } from './store-api/store-api';

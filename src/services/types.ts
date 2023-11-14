@@ -1,9 +1,9 @@
-import { type StoreApiRepository } from 'repositories/types';
+import { type ApiRepository } from 'repositories/types';
 
-export abstract class StoreApiService {
-    readonly storeApiRepository: StoreApiRepository;
+export abstract class ApiService {
+    readonly apiRepository: ApiRepository;
 
-    constructor (storeApiRepository: StoreApiRepository) {
-        this.storeApiRepository = storeApiRepository;
+    constructor (apiRepository: ApiRepository) {
+        this.apiRepository = apiRepository;
     }
 }

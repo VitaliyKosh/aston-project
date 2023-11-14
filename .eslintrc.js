@@ -40,6 +40,7 @@ module.exports = {
         // '@typescript-eslint/naming-convention': 0,
         // '@typescript-eslint/no-redeclare': 0,
         // '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/no-useless-constructor': 0,
         'constructor-super': 'error', // проверка вызова super() в конструкторе
         'for-direction': 'error', // проверка цикла for на конечное число итераций
         'getter-return': 'error', // требовать return в getter

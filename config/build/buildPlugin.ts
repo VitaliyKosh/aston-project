@@ -4,6 +4,11 @@ import { type BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import dotenv from 'dotenv';
+
+dotenv.config({
+    path: './.env'
+});
 
 export function buildPlugins ({ paths, isDev, analyze }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
@@ -18,6 +23,11 @@ export function buildPlugins ({ paths, isDev, analyze }: BuildOptions): webpack.
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
+        }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify({
+                DB: process.env.DB
+            })
         }),
         ...(
             isDev ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()] : []

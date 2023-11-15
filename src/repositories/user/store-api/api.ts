@@ -32,7 +32,7 @@ export class ReduxUserStoreApiRepository extends ReduxApiRepository implements U
         return this.api.getState().userReducer.user;
     }
 
-    public getLoginStatus (): AuthStatus {
+    public getAuthStatus (): AuthStatus {
         return this.api.getState().userReducer.authStatus;
     }
 }

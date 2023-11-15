@@ -33,7 +33,7 @@ export class UserStoreApiService extends ApiService {
         return this.apiRepository.getUser();
     }
 
-    public getLoginStatus (): AuthStatus {
-        return this.apiRepository.getLoginStatus();
+    public getAuthStatus (): AuthStatus {
+        return this.apiRepository.getAuthStatus();
     }
 }

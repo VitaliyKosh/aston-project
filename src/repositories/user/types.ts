@@ -15,5 +15,5 @@ export interface UserStoreApiRepository extends ApiRepository {
     userSignsOut: () => void
     userSignedOut: () => void
     getUser: () => User
-    getLoginStatus: () => AuthStatus
+    getAuthStatus: () => AuthStatus
 };

@@ -38,6 +38,6 @@ export class UserFeature implements UserModel {
     }
 
     getAuthStatus (): AuthStatus {
-        return this.#storeApiService.getLoginStatus();
+        return this.#storeApiService.getAuthStatus();
     }
 }

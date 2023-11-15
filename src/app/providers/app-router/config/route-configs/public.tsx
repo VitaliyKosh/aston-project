@@ -6,7 +6,7 @@ export enum PublicAppRoutes {
     MAIN = 'MAIN',
 }
 
-const publicRoutePath: RoutePaths<PublicAppRoutes> = {
+const publicRoutePaths: RoutePaths<PublicAppRoutes> = {
     [PublicAppRoutes.MAIN]: '/main'
 };
 
@@ -16,9 +16,9 @@ const publicRouteTitles: RouteTitles<PublicAppRoutes> = {
 
 const routePropsFabric = createRoutePropsFabric<PublicAppRoutes>(
     publicRouteTitles,
-    publicRoutePath
+    publicRoutePaths
 );
 
 export const publicRouteConfig: RouteConfig<PublicAppRoutes> = {
-    [PublicAppRoutes.MAIN]: routePropsFabric(PublicAppRoutes.MAIN, MainPage())
+    [PublicAppRoutes.MAIN]: routePropsFabric(PublicAppRoutes.MAIN, <MainPage/>)
 };

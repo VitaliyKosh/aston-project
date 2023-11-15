@@ -11,7 +11,6 @@ export class Application {
     #firebaseApi: FirebaseApi;
     #lsApi: LSApi;
 
-    // inputs
     postCardList: PostCardListModel;
     user: UserModel;
 
@@ -32,5 +31,9 @@ export class Application {
             api: process.env.DB === 'LS' ? this.#lsApi : this.#firebaseApi,
             storeApi: this.#reduxStoreApi
         });
+    }
+
+    getReduxStore (): ReduxStoreApi {
+        return this.#reduxStoreApi;
     }
 }

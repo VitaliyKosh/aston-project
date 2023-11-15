@@ -1,9 +1,9 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { LoginStatus, type User } from 'models/user';
+import { AuthStatus, type User } from 'models/user';
 
 interface UserState {
     user: User
-    loginStatus: LoginStatus
+    authStatus: AuthStatus
 }
 
 const initialState: UserState = {
@@ -11,7 +11,7 @@ const initialState: UserState = {
         id: '',
         email: ''
     },
-    loginStatus: LoginStatus.Pending
+    authStatus: AuthStatus.Pending
 };
 
 export const userSlice = createSlice({
@@ -19,25 +19,25 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         userSignsUp (state) {
-            state.loginStatus = LoginStatus.Pending;
+            state.authStatus = AuthStatus.Pending;
         },
         userSignedUp (state, action: PayloadAction<User>) {
             state.user = action.payload;
-            state.loginStatus = LoginStatus.LoggedIn;
+            state.authStatus = AuthStatus.SignedIn;
         },
         userSignsIn (state) {
-            state.loginStatus = LoginStatus.Pending;
+            state.authStatus = AuthStatus.Pending;
         },
         userSignedIn (state, action: PayloadAction<User>) {
             state.user = action.payload;
-            state.loginStatus = LoginStatus.LoggedIn;
+            state.authStatus = AuthStatus.SignedIn;
         },
         userSignsOut (state) {
-            state.loginStatus = LoginStatus.Pending;
+            state.authStatus = AuthStatus.Pending;
         },
         userSignedOut (state) {
             state = initialState;
-            state.loginStatus = LoginStatus.LoggedOut;
+            state.authStatus = AuthStatus.SignedOut;
         }
     }
 });

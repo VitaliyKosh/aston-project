@@ -4,7 +4,6 @@ import { privateRouteConfig, publicRouteConfig } from '../config';
 import { PageLoader } from 'widgets/page-loader';
 import { AuthStatus } from 'models/user';
 import { useObservableState } from 'repositories/redux/hooks/useTypedSelector';
-import { BrowserRouter } from 'react-router-dom';
 import { useApp } from 'shared/hooks/use-app';
 
 export const GlobalAppRouter: RC = () => {
@@ -13,16 +12,14 @@ export const GlobalAppRouter: RC = () => {
 
     if (authStatus === AuthStatus.Pending) {
         return <PageLoader />;
+    } else if (authStatus === AuthStatus.SignedIn) {
+        return (
+            <>
+                <PartialAppRouter routeConfig={publicRouteConfig} />
+                <PartialAppRouter routeConfig={privateRouteConfig} />
+            </>
+        );
+    } else {
+        return <PartialAppRouter routeConfig={publicRouteConfig} />;
     }
-
-    return (
-        <BrowserRouter>
-            <PartialAppRouter routeConfig={publicRouteConfig} />
-            {authStatus === AuthStatus.SignedIn
-                ? (
-                    <PartialAppRouter routeConfig={privateRouteConfig} />
-                )
-                : undefined}
-        </BrowserRouter>
-    );
 };

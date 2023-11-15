@@ -6,6 +6,7 @@ import { GlobalAppRouter } from './providers/app-router';
 import { Provider } from 'react-redux';
 import { useApp } from 'shared/hooks/use-app';
 import { useAuth } from 'shared/hooks/use-auth';
+import { BrowserRouter } from 'react-router-dom';
 
 export const App: RC = () => {
     const app = useApp();
@@ -14,7 +15,9 @@ export const App: RC = () => {
     return (
         <Provider store={app.getReduxStore()}>
             <Suspense fallback={<PageLoader />}>
-                <GlobalAppRouter />
+                <BrowserRouter>
+                    <GlobalAppRouter />
+                </BrowserRouter>
             </Suspense>
         </Provider>
     );

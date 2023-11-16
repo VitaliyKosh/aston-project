@@ -7,7 +7,7 @@ export enum PublicAppRoutes {
 }
 
 const publicRoutePaths: RoutePaths<PublicAppRoutes> = {
-    [PublicAppRoutes.MAIN]: '/main'
+    [PublicAppRoutes.MAIN]: '/'
 };
 
 const publicRouteTitles: RouteTitles<PublicAppRoutes> = {

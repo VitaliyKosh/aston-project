@@ -3,15 +3,15 @@ import type { RoutePaths, RouteProps, RouteTitles } from '../types';
 import { createRoutePropsFabric } from '../route-config';
 
 export enum PrivateAppRoutes {
-    MAIN = 'MAIN',
+    FAVORITES = 'FAVORITES',
 }
 
 const privateRoutePaths: RoutePaths<PrivateAppRoutes> = {
-    [PrivateAppRoutes.MAIN]: '/'
+    [PrivateAppRoutes.FAVORITES]: '/favorites'
 };
 
 const privateRouteTitles: RouteTitles<PrivateAppRoutes> = {
-    [PrivateAppRoutes.MAIN]: 'Главная страница'
+    [PrivateAppRoutes.FAVORITES]: 'Избранное'
 };
 
 const routePropsFabric = createRoutePropsFabric<PrivateAppRoutes>(
@@ -20,5 +20,5 @@ const routePropsFabric = createRoutePropsFabric<PrivateAppRoutes>(
 );
 
 export const privateRouteConfig: Record<PrivateAppRoutes, RouteProps> = {
-    [PrivateAppRoutes.MAIN]: routePropsFabric(PrivateAppRoutes.MAIN, <MainPage />)
+    [PrivateAppRoutes.FAVORITES]: routePropsFabric(PrivateAppRoutes.FAVORITES, <MainPage />)
 };

@@ -8,14 +8,14 @@ export enum ButtonTheme {
     Default = 'default'
 }
 
-interface ButtonProps {
+interface Props {
     className?: string
     theme?: ButtonTheme
     children?: React.ReactNode
-    onClick: () => void
+    onClick?: () => void
 }
 
-export const Button: RC<ButtonProps> = props => {
+export const Button: RC<Props> = props => {
     const {
         className,
         children,

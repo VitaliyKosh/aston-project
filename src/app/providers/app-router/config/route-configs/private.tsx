@@ -6,7 +6,7 @@ export enum PrivateAppRoutes {
     FAVORITES = 'FAVORITES',
 }
 
-const privateRoutePaths: RoutePaths<PrivateAppRoutes> = {
+export const privateRoutePaths: RoutePaths<PrivateAppRoutes> = {
     [PrivateAppRoutes.FAVORITES]: '/favorites'
 };
 

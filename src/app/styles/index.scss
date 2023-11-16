@@ -1,5 +1,11 @@
 @import "reset";
 @import "variables/global";
+@import "themes/light.scss";
+@import "themes/dark.scss";
+
+html {
+  background-color: var(--bg-color);
+}
 
 .app {
   font: var(--font-m);

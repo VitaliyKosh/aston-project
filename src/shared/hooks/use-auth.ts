@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useApp } from './use-app';
+import { getApp } from 'shared/helpers/get-app';
 
 export function useAuth (): void {
-    const app = useApp();
+    const app = getApp();
 
     useEffect(() => {
         // TODO проверка токена

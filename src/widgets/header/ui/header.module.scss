@@ -1,0 +1,21 @@
+.header {
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+    backdrop-filter: blur(5px);
+    background-color: #FFFFFF60;
+}
+
+.headerContent {
+    padding: 0 20px;
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    height: var(--header-height);
+    align-items: center;
+    justify-content: space-between;
+}

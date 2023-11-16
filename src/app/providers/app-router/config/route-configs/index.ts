@@ -1,2 +1,2 @@
-export { privateRouteConfig, type PrivateAppRoutes } from './private';
-export { publicRouteConfig, type PublicAppRoutes } from './public';
+export { privateRouteConfig, privateRoutePaths, type PrivateAppRoutes } from './private';
+export { publicRouteConfig, publicRoutePaths, type PublicAppRoutes } from './public';

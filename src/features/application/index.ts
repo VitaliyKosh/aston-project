@@ -7,12 +7,12 @@ import { type PostCardListModel } from 'models/post-card-list';
 import { LSApi } from 'repositories/local-storage';
 
 export class Application {
-    #reduxStoreApi: ReduxStoreApi;
-    #firebaseApi: FirebaseApi;
-    #lsApi: LSApi;
+    #reduxStoreApi!: ReduxStoreApi;
+    #firebaseApi!: FirebaseApi;
+    #lsApi!: LSApi;
 
-    postCardList: PostCardListModel;
-    user: UserModel;
+    postCardList!: PostCardListModel;
+    user!: UserModel;
 
     constructor () {
         this.setupApi();

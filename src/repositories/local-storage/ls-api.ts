@@ -1,7 +1,7 @@
 import { ApiRepository } from 'repositories/types';
 import { v4 } from 'uuid';
-import { LSError } from './error';
-import { LSAuthErrorCodes, type UserDbModel, type UserCredential } from './types';
+import { type UserDbModel, type UserCredential } from './types';
+import { AppError, AuthErrorCodes, BaseErrorCodes } from 'repositories/error';
 
 const dbPrefix = 'db';
 
@@ -10,7 +10,7 @@ export class LSApi {
         const candidate = LSApi.getUserByEmail(email);
 
         if (candidate) {
-            throw new LSError(LSAuthErrorCodes.EMAIL_OCCUPIED);
+            throw new AppError(AuthErrorCodes.EMAIL_OCCUPIED);
         }
 
         const user = {
@@ -20,6 +20,11 @@ export class LSApi {
 
         const userId = LSApi.createUser(user);
         const newUser = LSApi.getUserById(userId);
+
+        if (!newUser) {
+            throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
+        }
+
         return LSApi.getUserCredential(newUser);
     };
 
@@ -27,11 +32,11 @@ export class LSApi {
         const user = LSApi.getUserByEmail(email);
 
         if (!user) {
-            throw new LSError(LSAuthErrorCodes.INCORRECT_EMAIL);
+            throw new AppError(AuthErrorCodes.INCORRECT_EMAIL);
         }
 
         if (user.password !== password) {
-            throw new LSError(LSAuthErrorCodes.INCORRECT_PASSWORD);
+            throw new AppError(AuthErrorCodes.INCORRECT_PASSWORD);
         }
 
         return LSApi.getUserCredential(user);
@@ -40,14 +45,21 @@ export class LSApi {
     signOut (): void {};
 
     private static getUserById (id: string): UserDbModel | null {
-        return JSON.parse(localStorage.getItem(LSApi.getDBPath(['users', id])));
+        const item = localStorage.getItem(LSApi.getDBPath(['users', id]));
+        return item ? JSON.parse(item) : null;
     }
 
     private static getUserByEmail (email: string): UserDbModel | null {
         const keys = Object.keys(localStorage);
         for (const key of keys) {
             if (key.startsWith(LSApi.getDBPath(['users']))) {
-                const user = JSON.parse(localStorage.getItem(key)) as UserDbModel;
+                const item = localStorage.getItem(key);
+
+                if (!item) {
+                    throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
+                }
+
+                const user = JSON.parse(item) as UserDbModel;
 
                 if (user.email === email) {
                     return user;
@@ -87,6 +99,7 @@ export abstract class LSApiRepository extends ApiRepository {
     readonly api: LSApi;
 
     constructor (api: LSApi) {
-        super(api);
+        super();
+        this.api = api;
     }
 }

@@ -44,6 +44,7 @@ export abstract class FirebaseApiRepository extends ApiRepository {
     readonly api: FirebaseApi;
 
     constructor (api: FirebaseApi) {
-        super(api);
+        super();
+        this.api = api;
     }
 }

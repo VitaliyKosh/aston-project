@@ -19,7 +19,7 @@ export const Button: RC<ButtonProps> = props => {
     const {
         className,
         children,
-        theme,
+        theme = ButtonTheme.Default,
         onClick
     } = props;
 

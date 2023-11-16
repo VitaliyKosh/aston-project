@@ -8,7 +8,6 @@ const rootReducer = combineReducers({
     [postCardListSlice.reducerPath]: postCardListSlice.reducer
 });
 
-// Слишком сложный тип, он должен выводиться автоматически
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const setupStore = () => {
     return configureStore({
@@ -19,7 +18,6 @@ export const setupStore = () => {
     });
 };
 
-// Автоматический вывод типа
 export type ReduxStoreApi = ReturnType<typeof setupStore>;
 
 export abstract class ReduxApiRepository extends ApiRepository {

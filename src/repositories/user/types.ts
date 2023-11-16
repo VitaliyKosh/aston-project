@@ -1,4 +1,4 @@
-import { type User } from 'models/user';
+import { type AuthStatus, type User } from 'models/user';
 import { type ApiRepository } from 'repositories/types';
 
 export interface UserApiRepository extends ApiRepository {
@@ -15,4 +15,5 @@ export interface UserStoreApiRepository extends ApiRepository {
     userSignsOut: () => void
     userSignedOut: () => void
     getUser: () => User
+    getAuthStatus: () => AuthStatus
 };

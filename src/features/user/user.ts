@@ -1,4 +1,4 @@
-import { type User, type UserModel } from 'models/user';
+import { type AuthStatus, type User, type UserModel } from 'models/user';
 import { type UserStoreApiService, type UserApiService } from 'services/user';
 
 export interface Dependencies {
@@ -35,5 +35,9 @@ export class UserFeature implements UserModel {
 
     getUser (): User {
         return this.#storeApiService.getUser();
+    }
+
+    getAuthStatus (): AuthStatus {
+        return this.#storeApiService.getAuthStatus();
     }
 }

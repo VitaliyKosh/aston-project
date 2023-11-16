@@ -1,9 +1,9 @@
 import { FirebaseError } from 'firebase/app';
-import { UserAuthError } from './errors';
 import { type User } from 'models/user';
 import { type UserApiRepository } from '../types';
 import { FirebaseApiRepository } from 'repositories/firebase';
 import { type UserCredential } from 'firebase/auth';
+import { AppError, BaseErrorCodes } from 'repositories/error';
 
 export class UserFirebaseApiRepository extends FirebaseApiRepository implements UserApiRepository {
     public async signIn (email: string, password: string): Promise<User> {
@@ -13,8 +13,9 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
             return user;
         } catch (e) {
             if (e instanceof FirebaseError) {
-                throw new UserAuthError(e.code);
+                throw new AppError(e.code);
             }
+            throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
         }
     }
 
@@ -25,8 +26,9 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
             return user;
         } catch (e) {
             if (e instanceof FirebaseError) {
-                throw new UserAuthError(e.code);
+                throw new AppError(e.code);
             }
+            throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
         }
     }
 
@@ -35,15 +37,16 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
             await this.api.signOut();
         } catch (e) {
             if (e instanceof FirebaseError) {
-                throw new UserAuthError(e.code);
+                throw new AppError(e.code);
             }
+            throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
         }
     }
 
     private static userCredentialToModel (userCredential: UserCredential): User {
         return {
             id: userCredential.user.uid,
-            email: userCredential.user.email
+            email: userCredential.user.email ?? ''
         };
     }
 }

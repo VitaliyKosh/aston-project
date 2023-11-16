@@ -24,6 +24,7 @@ export abstract class ReduxApiRepository extends ApiRepository {
     readonly api: ReduxStoreApi;
 
     constructor (api: ReduxStoreApi) {
-        super(api);
+        super();
+        this.api = api;
     }
 }

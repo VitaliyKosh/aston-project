@@ -1,9 +1,13 @@
 import { type AuthStatus, type User } from 'models/user';
 import { type UserStoreApiRepository } from 'repositories/user';
-import { ApiService } from 'services/types';
+import { type ApiService } from 'services/types';
 
-export class UserStoreApiService extends ApiService {
+export class UserStoreApiService implements ApiService {
     apiRepository: UserStoreApiRepository;
+
+    constructor (apiRepository: UserStoreApiRepository) {
+        this.apiRepository = apiRepository;
+    }
 
     public userSignsUp (): void {
         this.apiRepository.userSignsUp();

@@ -1,3 +1,4 @@
+// TODO deprecated
 import { ApiLibrary, type RequestGetConfig, type RequestPostConfig } from '../../types';
 
 const config = {

@@ -5,6 +5,11 @@ import { ApiService } from 'services/types';
 export class UserApiService extends ApiService {
     apiRepository: UserApiRepository;
 
+    constructor (apiRepository: UserApiRepository) {
+        super();
+        this.apiRepository = apiRepository;
+    }
+
     public async signIn (email: string, password: string): Promise<User> {
         return await this.apiRepository.signIn(email, password);
     }

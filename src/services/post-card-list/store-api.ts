@@ -10,6 +10,6 @@ export class PostCardListStoreApiService implements ApiService {
     }
 
     public async readModel (count: number): Promise<PostCard[]> {
-        return await this.apiRepository.readModel(count);
+        return await this.apiRepository.getPostCardList(count);
     }
 }

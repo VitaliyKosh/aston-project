@@ -1,5 +1,5 @@
 import { type UserModel } from 'models/user';
-import { setupStore, type ReduxStoreApi } from 'repositories/redux';
+import { reduxStore, type ReduxStoreApi } from 'repositories/redux';
 import { createPostCardListComposition } from '../post-card-list';
 import { FirebaseApi } from 'repositories/firebase';
 import { createUserComposition } from 'features/user';
@@ -20,7 +20,7 @@ export class Application {
     }
 
     private setupApi (): void {
-        this.#reduxStoreApi = setupStore();
+        this.#reduxStoreApi = reduxStore;
         this.#firebaseApi = new FirebaseApi();
         this.#lsApi = new LSApi();
     }

@@ -1,38 +1,42 @@
-import { userSignedIn, userSignedOut, userSignedUp, userSignsIn, userSignsUp } from './store-slice';
+import { type UserState, userSignedIn, userSignedOut, userSignedUp, userSignsIn, userSignsUp } from './store-slice';
 import { type AuthStatus, type User } from 'models/user';
 import { ReduxApiRepository } from 'repositories/redux';
 import { type UserStoreApiRepository } from '../types';
 
 export class ReduxUserStoreApiRepository extends ReduxApiRepository implements UserStoreApiRepository {
+    private getRootState (): UserState {
+        return this.getState().userReducer;
+    }
+
     public userSignsUp (): void {
-        this.api.dispatch(userSignsUp());
+        this.dispatch(userSignsUp());
     }
 
     public userSignedUp (user: User): void {
-        this.api.dispatch(userSignedUp(user));
+        this.dispatch(userSignedUp(user));
     }
 
     public userSignsIn (): void {
-        this.api.dispatch(userSignsIn());
+        this.dispatch(userSignsIn());
     }
 
     public userSignedIn (user: User): void {
-        this.api.dispatch(userSignedIn(user));
+        this.dispatch(userSignedIn(user));
     }
 
     public userSignsOut (): void {
-        this.api.dispatch(userSignsIn());
+        this.dispatch(userSignsIn());
     }
 
     public userSignedOut (): void {
-        this.api.dispatch(userSignedOut());
+        this.dispatch(userSignedOut());
     }
 
     public getUser (): User {
-        return this.api.getState().userReducer.user;
+        return this.getRootState().user;
     }
 
     public getAuthStatus (): AuthStatus {
-        return this.api.getState().userReducer.authStatus;
+        return this.getRootState().authStatus;
     }
 }

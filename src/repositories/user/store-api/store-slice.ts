@@ -1,7 +1,7 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { AuthStatus, type User } from 'models/user';
 
-interface UserState {
+export interface UserState {
     user: User
     authStatus: AuthStatus
 }
@@ -50,4 +50,5 @@ export const {
     userSignsOut,
     userSignedOut
 } = userSlice.actions;
+
 export const userReducer = userSlice.reducer;

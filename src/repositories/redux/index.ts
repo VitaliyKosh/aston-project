@@ -9,22 +9,26 @@ const rootReducer = combineReducers({
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const setupStore = () => {
-    return configureStore({
-        reducer: rootReducer,
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware()
-                .concat(postCardListSlice.middleware)
-    });
-};
+export const reduxStore = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware()
+            .concat(postCardListSlice.middleware)
+});
 
-export type ReduxStoreApi = ReturnType<typeof setupStore>;
+export type ReduxStoreApi = typeof reduxStore;
+export type ReduxDispatch = typeof reduxStore.dispatch;
+export type ReduxState = ReturnType<typeof reduxStore.getState>;
 
 export abstract class ReduxApiRepository extends ApiRepository {
     readonly api: ReduxStoreApi;
+    readonly getState: () => ReduxState;
+    readonly dispatch: ReduxDispatch;
 
     constructor (api: ReduxStoreApi) {
         super();
         this.api = api;
+        this.getState = api.getState;
+        this.dispatch = api.dispatch;
     }
 }

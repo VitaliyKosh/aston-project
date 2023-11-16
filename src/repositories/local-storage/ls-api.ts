@@ -46,7 +46,7 @@ export class LSApi {
 
     private static getUserById (id: string): UserDbModel | null {
         const item = localStorage.getItem(LSApi.getDBPath(['users', id]));
-        return item ? JSON.parse(item) : null;
+        return item === null ? item : JSON.parse(item);
     }
 
     private static getUserByEmail (email: string): UserDbModel | null {
@@ -55,7 +55,7 @@ export class LSApi {
             if (key.startsWith(LSApi.getDBPath(['users']))) {
                 const item = localStorage.getItem(key);
 
-                if (!item) {
+                if (item === null) {
                     throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
                 }
 

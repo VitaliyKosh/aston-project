@@ -36,7 +36,7 @@ export const userSlice = createSlice({
             state.authStatus = AuthStatus.Pending;
         },
         userSignedOut (state) {
-            state = initialState;
+            state.user = initialState.user;
             state.authStatus = AuthStatus.SignedOut;
         }
     }

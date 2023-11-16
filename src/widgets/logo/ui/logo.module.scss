@@ -1,0 +1,16 @@
+.logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+    .logoSvg {
+        transition: fill 0.3s;
+        fill: var(--bg-inverted-color-inactive);
+    }
+    &:hover {
+        .logoSvg {
+            fill: var(--bg-inverted-color);
+        }
+    }
+}

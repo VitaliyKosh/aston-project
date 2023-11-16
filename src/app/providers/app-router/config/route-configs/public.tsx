@@ -6,7 +6,7 @@ export enum PublicAppRoutes {
     MAIN = 'MAIN',
 }
 
-const publicRoutePaths: RoutePaths<PublicAppRoutes> = {
+export const publicRoutePaths: RoutePaths<PublicAppRoutes> = {
     [PublicAppRoutes.MAIN]: '/'
 };
 

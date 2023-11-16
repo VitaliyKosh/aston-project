@@ -14,11 +14,12 @@ export const GlobalAppRouter: RC<Props> = ({ fallback }) => {
     const app = getApp();
     const authStatus = useObservableState(() => app.user.getAuthStatus());
 
-    if (authStatus === AuthStatus.Pending) {
-        return fallback;
-    } else if (authStatus === AuthStatus.SignedIn) {
-        return <AppRouter routeConfigs={[privateRouteConfig, publicRouteConfig]}/>;
-    } else {
-        return <AppRouter routeConfigs={[publicRouteConfig]}/>;
+    switch (authStatus) {
+        case AuthStatus.Pending:
+            return fallback;
+        case AuthStatus.SignedIn:
+            return <AppRouter routeConfigs={[privateRouteConfig, publicRouteConfig]}/>;
+        default:
+            return <AppRouter routeConfigs={[publicRouteConfig]}/>;
     }
 };

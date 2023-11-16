@@ -1,4 +1,4 @@
-import { Logo } from 'widgets/logo';
+import { Logo } from './logo/logo';
 import c from './header.module.scss';
 import { type RC } from 'shared/types/component';
 import { UserSection } from './user-section/user-section';

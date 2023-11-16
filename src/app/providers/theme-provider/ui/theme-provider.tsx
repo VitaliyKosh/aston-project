@@ -3,6 +3,7 @@ import { ThemeContext } from '../lib/theme-context';
 import { type RC } from 'shared/types/component';
 import { getInitialColorScheme } from 'shared/helpers/get-initial-color-scheme';
 import { type Theme } from 'shared/types/theme';
+import { addHTMLTheme } from 'shared/helpers/add-html-theme';
 
 interface Props {
     children: ReactNode
@@ -11,7 +12,7 @@ interface Props {
 export const ThemeProvider: RC<Props> = ({ children }) => {
     const [theme, setTheme] = useState<Theme>(() => {
         const initialTheme = getInitialColorScheme();
-        document.querySelector('html')?.classList.add(initialTheme);
+        addHTMLTheme(initialTheme);
         return initialTheme;
     });
 

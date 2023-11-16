@@ -9,11 +9,12 @@ export const UserSection: RC = () => {
     const app = getApp();
     const authStatus = useObservableState(() => app.user.getAuthStatus());
 
-    if (authStatus === AuthStatus.SignedIn) {
-        return <AuthorizedUser />;
-    } else if (authStatus === AuthStatus.SignedOut) {
-        return <UnauthorizedUser />;
-    } else {
-        return null;
+    switch (authStatus) {
+        case AuthStatus.SignedIn:
+            return <AuthorizedUser />;
+        case AuthStatus.SignedOut:
+            return <UnauthorizedUser />;
+        default:
+            return null;
     }
 };

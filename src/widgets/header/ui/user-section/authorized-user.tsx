@@ -9,7 +9,7 @@ import { privateRoutePaths } from 'app/providers/app-router';
 import { getApp } from 'shared/helpers/get-app';
 
 export const AuthorizedUser: RC = () => {
-    const handlerExitClick = (): void => {
+    const handleExitClick = (): void => {
         void getApp().user.signedOut();
     };
 
@@ -20,7 +20,7 @@ export const AuthorizedUser: RC = () => {
             </Link>
             <Button
                 theme={ButtonTheme.Clear}
-                onClick={handlerExitClick}
+                onClick={handleExitClick}
             >
                 Выйти
             </Button>

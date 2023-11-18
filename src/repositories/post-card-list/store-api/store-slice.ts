@@ -6,6 +6,7 @@ export const postCardListSlice = createApi({
     // TODO to env
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5010/api' }),
     tagTypes: ['PostCardList'],
+    refetchOnMountOrArgChange: true,
     endpoints: (build) => ({
         fetchPostCardList: build.query<PostCardListDto, number>({
             query: (limit: number = 5) => ({

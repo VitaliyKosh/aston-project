@@ -1,6 +1,9 @@
 :root {
 
   --font-family-main: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-size-xs: 10px;
+  --font-line-xs: 14px;
+  --font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-family-main);
   --font-size-s: 12px;
   --font-line-s: 16px;
   --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
@@ -15,7 +18,7 @@
   --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
 
-  --border-radius: 10px;
+  --border-radius: 15px;
   --box-shadow: 0 0 10px 5px #00000015;
   --box-shadow-inset: inset -2px -2px 7px 0px #00000020;
   --page-box-shadow: 0 0 30px 5px #00000015;

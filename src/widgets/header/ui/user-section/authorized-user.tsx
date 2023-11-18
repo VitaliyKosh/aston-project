@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { Button, ButtonTheme } from 'shared/ui/button/button';
+import { Button } from 'shared/ui/button/button';
 import { Link } from 'react-router-dom';
 import { privateRoutePaths } from 'app/providers/app-router';
 import { getApp } from 'shared/helpers/get-app';
@@ -19,8 +19,10 @@ export const AuthorizedUser: RC = () => {
                 <FontAwesomeIcon size='xs' icon={faHeart}/>
             </Link>
             <Button
-                theme={ButtonTheme.Clear}
+                theme='clear'
+                size='s'
                 onClick={handleExitClick}
+                className={c.logOutButton}
             >
                 Выйти
             </Button>

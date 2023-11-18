@@ -8,7 +8,7 @@ export type PostSpecifications = Record<Specifications, string>;
 export interface Post {
     id: string
     title: PostTitle
-    img: PostImg
+    img?: PostImg
     specifications: PostSpecifications
-    description: PostDescription
+    description?: PostDescription
 }

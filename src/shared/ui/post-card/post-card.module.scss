@@ -1,0 +1,54 @@
+.postCard {
+    box-shadow: var(--box-shadow);
+    background-color: var(--on-bg-color);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    font: var(--font-xs);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    font: var(--font-m);
+}
+
+.imgDescriptionWrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.imgWrapper {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    border-radius: 7px;
+}
+
+.img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.description {
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 7; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.favoriteButton {
+    display: flex;
+    align-items: center;
+}

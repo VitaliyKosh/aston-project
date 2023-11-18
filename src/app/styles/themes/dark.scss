@@ -1,10 +1,19 @@
 .dark {
-    --bg-color: rgb(174 174 174);
-    --inverted-bg-color: rgb(0 0 57);
+    --bg-color: #161618;
+    --bg-inverted-color: #F2F2F5 ;
+    --bg-inverted-color-inactive: #333336;
 
-    --primary-color: rgb(0 2 110);
-    --inverted-primary-color: rgb(0 63 0);
-    
+    --on-bg-color: #242427;
+    --on-bg-color-inverted: #F2F2F5;
+
+    --on-bg-shadow: 0 0 10px #00000020;
+    --on-bg-shadow-inset: 0 0 10px #00000020 inset;
+
+    --primary-color: #F2F2F5;
+    --primary-color-active-1: #e6e6e9;
+    --primary-color-active-2: #dcdce0;
+    --primary-color-inverted: #3e3e44;
+
     --secondary-color: rgb(3 0 164);
-    --inverted-secondary-color: rgb(0 117 0);
+    --secondary-color-inverted: rgb(0 117 0);
 }

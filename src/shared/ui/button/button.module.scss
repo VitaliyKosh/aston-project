@@ -1,12 +1,39 @@
 .button {
     cursor: pointer;
-    color: var(--primary-color);
 }
 
-.clear {
+.theme-clear {
     padding: 0;
     margin: 0;
     border: none;
     background: none;
     outline: none;
+}
+
+.theme-default {
+    margin: 0;
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--primary-color-inverted);
+}
+
+.size-s {
+    height: 25px;
+    font: var(--font-s);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.size-m {
+    height: 30px;
+    font: var(--font-m);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.size-l {
+    height: 35px;
+    font: var(--font-l);
+    padding: 5px 10px;
+    border-radius: 20px;
 }

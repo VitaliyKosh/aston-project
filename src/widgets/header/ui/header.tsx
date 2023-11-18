@@ -5,7 +5,7 @@ import { UserSection } from './user-section/user-section';
 import { classNames } from 'shared/lib/class-names';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
-import { Button, ButtonTheme } from 'shared/ui/button/button';
+import { Button } from 'shared/ui/button/button';
 import { useTheme } from 'app/providers/theme-provider';
 
 export const Header: RC = () => {
@@ -16,7 +16,7 @@ export const Header: RC = () => {
             <div className={c.headerContent}>
                 <Logo />
                 <Button
-                    theme={ButtonTheme.Clear}
+                    theme='clear'
                     onClick={toggleTheme}
                 >
                     <FontAwesomeIcon size='xs' icon={faLightbulb}/>

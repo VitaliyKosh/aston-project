@@ -4,10 +4,13 @@
     --bg-inverted-color-inactive: #333336;
 
     --on-bg-color: #FFFFFF;
-    --on-bg-color-inverted: #161618;
+    --on-bg-color-inverted: #000000;
 
-    --primary-color: #161618;
-    --primary-color-inverted: rgb(212, 212, 212);
+    --on-bg-shadow: 0 0 6px #00000020;
+    --on-bg-shadow-inset: 0 0 6px #00000020 inset;
+
+    --primary-color: #3e3e44;
+    --primary-color-inverted: #F2F2F5;
 
     --secondary-color: rgb(3 0 164);
     --secondary-color-inverted: rgb(0 117 0);

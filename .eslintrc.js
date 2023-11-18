@@ -21,7 +21,7 @@ module.exports = {
         '@typescript-eslint/import/prefer-default-export': 'off',
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': 'error',
-        indent: ['error', 4],
+        indent: ['error', 4, { SwitchCase: 1 }],
         '@typescript-eslint/indent': ['error', 4],
         'react/jsx-filename-extension': [
             2,

@@ -1,23 +1,23 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import c from './app-router.module.scss';
-import type { RouteConfig } from 'app/providers/app-router/config';
 import { type RC } from 'shared/types/component';
+import { type RouteConfig } from '../config';
+import { Page } from './page';
 
 interface Props {
-    routeConfig: RouteConfig
+    routeConfigs: RouteConfig[]
 }
 
-export const PartialAppRouter: RC<Props> = ({ routeConfig }) => {
+export const AppRouter: RC<Props> = ({ routeConfigs }) => {
     return (
         <Routes>
-            {Object.values(routeConfig).map(({ element, path }) => (
+            {routeConfigs.map(routeConfig => Object.values(routeConfig).map(({ element, path, title }) => (
                 <Route
                     key={path}
                     path={path}
-                    element={<div className={c.pageWrapper}>{element}</div>}
+                    element={<Page title={title}>{element}</Page>}
                 />
-            ))}
-            <Route path="/*" element={<Navigate to="/" />} />
+            )))}
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
 };

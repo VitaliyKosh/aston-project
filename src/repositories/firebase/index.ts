@@ -5,7 +5,8 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
-    signOut
+    signOut,
+    type User
 } from 'firebase/auth';
 import { ApiRepository } from 'repositories/types';
 
@@ -37,6 +38,11 @@ export class FirebaseApi {
 
     async signOut (): Promise<void> {
         await signOut(this.auth);
+    };
+
+    async refresh (): Promise<User | null | undefined> {
+        await this.auth.authStateReady();
+        return this.auth.currentUser;
     };
 }
 

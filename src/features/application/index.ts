@@ -5,6 +5,8 @@ import { FirebaseApi } from 'repositories/firebase';
 import { createUserComposition } from 'features/user';
 import { type PostCardListModel } from 'models/post-card-list';
 import { LSApi } from 'repositories/local-storage';
+import { createFavoritesComposition } from 'features/favorites/favorites.composition';
+import { type FavoritesModel } from 'models/favorites';
 
 export class Application {
     #reduxStoreApi!: ReduxStoreApi;
@@ -13,6 +15,7 @@ export class Application {
 
     postCardList!: PostCardListModel;
     user!: UserModel;
+    favorites!: FavoritesModel;
 
     constructor () {
         this.setupApi();
@@ -29,7 +32,11 @@ export class Application {
         this.postCardList = createPostCardListComposition({ storeApi: this.#reduxStoreApi });
         this.user = createUserComposition({
             api: process.env.DB === 'LS' ? this.#lsApi : this.#firebaseApi,
-            storeApi: this.#reduxStoreApi
+            storeApi: this.#reduxStoreApi,
+            token: this.#lsApi
+        });
+        this.favorites = createFavoritesComposition({
+            api: process.env.DB === 'LS' ? this.#lsApi : this.#firebaseApi
         });
     }
 

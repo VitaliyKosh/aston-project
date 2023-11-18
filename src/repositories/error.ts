@@ -9,7 +9,9 @@ export enum ReactErrorCodes {
 export enum AuthErrorCodes {
     INCORRECT_EMAIL = 'auth/incorrect_email',
     INCORRECT_PASSWORD = 'auth/incorrect_password',
-    EMAIL_OCCUPIED = 'auth/email_occupied'
+    EMAIL_OCCUPIED = 'auth/email_occupied',
+    UNAUTHORIZED = 'auth/unauthorized',
+    USER_DOES_NOT_EXIST = 'auth/user_does_not_exist',
 };
 
 export enum PostErrorCodes {

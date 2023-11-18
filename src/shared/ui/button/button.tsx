@@ -1,16 +1,15 @@
 import React from 'react';
-import cls from './button.module.scss';
+import c from './button.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
 
-export enum ButtonTheme {
-    Clear = 'clear',
-    Default = 'default'
-}
+export type ButtonTheme = 'clear' | 'default';
+export type ButtonSize = 's' | 'm' | 'l';
 
 interface Props {
     className?: string
     theme?: ButtonTheme
+    size?: ButtonSize
     children?: React.ReactNode
     onClick?: () => void
 }
@@ -19,13 +18,19 @@ export const Button: RC<Props> = props => {
     const {
         className,
         children,
-        theme = ButtonTheme.Default,
+        theme = 'default',
+        size = 'm',
         onClick
     } = props;
 
     return (
         <button
-            className={classNames([cls[theme], cls.button, className])}
+            className={classNames([
+                c.button,
+                c[`theme-${theme}`],
+                c[`size-${size}`],
+                className
+            ])}
             onClick={onClick}
         >
             {children}

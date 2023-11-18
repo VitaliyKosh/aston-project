@@ -2,10 +2,13 @@ import { ApiRepository } from 'repositories/types';
 import { v4 } from 'uuid';
 import { type UserDbModel, type UserCredential } from './types';
 import { AppError, AuthErrorCodes, BaseErrorCodes } from 'repositories/error';
+import { type FavoriteItem, type Favorites } from 'models/favorites';
 
 const dbPrefix = 'db';
 
 export class LSApi {
+    // User
+
     signUp (email: string, password: string): UserCredential {
         const candidate = LSApi.getUserByEmail(email);
 
@@ -86,8 +89,72 @@ export class LSApi {
     private static getUserCredential (user: UserDbModel): UserCredential {
         return {
             id: user.id,
-            email: user.email
+            email: user.email,
+            token: user.id
         };
+    }
+
+    // Token
+
+    saveToken (token: string): void {
+        localStorage.setItem(LSApi.getDBPath(['userToken']), JSON.stringify(token));
+    }
+
+    readToken (): string | null {
+        const token = localStorage.getItem(LSApi.getDBPath(['userToken']));
+        return token ? JSON.parse(token) : null;
+    }
+
+    validateToken (token: string): UserCredential | null {
+        const user = LSApi.getUserById(token);
+
+        if (!user) {
+            return null;
+        }
+
+        return LSApi.getUserCredential(user);
+    }
+
+    private getUserIdByToken (): string {
+        const token = this.readToken();
+
+        if (!token) {
+            throw new AppError(AuthErrorCodes.UNAUTHORIZED);
+        }
+
+        const user = LSApi.getUserById(token);
+
+        if (!user) {
+            throw new AppError(AuthErrorCodes.USER_DOES_NOT_EXIST);
+        }
+
+        return user.id;
+    }
+
+    // Favorite
+
+    favoriteAdded (item: FavoriteItem): void {
+        const userId = this.getUserIdByToken();
+
+        const favorites = this.readFavorites();
+        favorites.push(item);
+
+        localStorage.setItem(LSApi.getDBPath(['favorites', userId]), JSON.stringify(favorites));
+    }
+
+    favoriteRemoved (item: FavoriteItem): void {
+        const userId = this.getUserIdByToken();
+
+        const favorites = this.readFavorites();
+        const newFavorites = favorites.filter((f) => f !== item);
+
+        localStorage.setItem(LSApi.getDBPath(['favorites', userId]), JSON.stringify(newFavorites));
+    }
+
+    readFavorites (): Favorites {
+        const userId = this.getUserIdByToken();
+
+        return JSON.parse(localStorage.getItem(LSApi.getDBPath(['favorites', userId])) ?? '[]');
     }
 
     private static getDBPath (segments: string[]): string {

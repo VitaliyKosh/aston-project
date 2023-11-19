@@ -1,6 +1,6 @@
 import type { RoutePaths, RouteProps, RouteTitles } from '../types';
 import { createRoutePropsFabric } from '../route-config';
-import { Favorites } from 'pages/favorites';
+import { FavoritesPage } from 'pages/favorites-page';
 
 export enum PrivateAppRoutes {
     FAVORITES = 'FAVORITES',
@@ -20,5 +20,5 @@ const routePropsFabric = createRoutePropsFabric<PrivateAppRoutes>(
 );
 
 export const privateRouteConfig: Record<PrivateAppRoutes, RouteProps> = {
-    [PrivateAppRoutes.FAVORITES]: routePropsFabric(PrivateAppRoutes.FAVORITES, <Favorites />)
+    [PrivateAppRoutes.FAVORITES]: routePropsFabric(PrivateAppRoutes.FAVORITES, <FavoritesPage />)
 };

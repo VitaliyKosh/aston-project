@@ -13,6 +13,7 @@ export const Header: RC = () => {
 
     return (
         <div className={classNames([c.header])}>
+            <div className={classNames([c.headerBG])} />
             <div className={c.headerContent}>
                 <Logo />
                 <Button

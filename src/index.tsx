@@ -3,7 +3,7 @@ import { ErrorBoundary } from 'app/providers/error-boundary';
 import { Application } from 'features/application';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AppError, ReactErrorCodes } from 'repositories/error';
+import { AppError, ReactErrorCodes } from 'shared/lib/app-error/app-error';
 
 global.window.app = new Application();
 

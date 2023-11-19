@@ -1,0 +1,10 @@
+.formInput {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.error {
+    font: var(--font-s);
+    color: var(--error-color);
+}

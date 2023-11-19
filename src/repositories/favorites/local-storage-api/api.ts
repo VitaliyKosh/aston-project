@@ -1,4 +1,4 @@
-import { AppError, BaseErrorCodes } from 'repositories/error';
+import { getSafeError } from 'shared/lib/app-error/app-error';
 import { type FavoritesApiRepository } from '../types';
 import { LSApiRepository } from 'repositories/local-storage/ls-api';
 import { type Favorites, type FavoriteItem } from 'models/favorites';
@@ -8,11 +8,7 @@ export class FavoritesLSApiRepository extends LSApiRepository implements Favorit
         try {
             this.api.favoriteAdded(id);
         } catch (e) {
-            if (e instanceof AppError) {
-                throw e;
-            } else {
-                throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
-            }
+            throw getSafeError(e);
         }
     }
 
@@ -20,11 +16,7 @@ export class FavoritesLSApiRepository extends LSApiRepository implements Favorit
         try {
             this.api.favoriteRemoved(id);
         } catch (e) {
-            if (e instanceof AppError) {
-                throw e;
-            } else {
-                throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
-            }
+            throw getSafeError(e);
         }
     }
 
@@ -32,11 +24,7 @@ export class FavoritesLSApiRepository extends LSApiRepository implements Favorit
         try {
             return this.api.readFavorites();
         } catch (e) {
-            if (e instanceof AppError) {
-                throw e;
-            } else {
-                throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
-            }
+            throw getSafeError(e);
         }
     }
 }

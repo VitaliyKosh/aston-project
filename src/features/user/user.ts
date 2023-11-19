@@ -1,4 +1,5 @@
 import { type AuthStatus, type User, type UserModel } from 'models/user';
+import { getSafeError } from 'shared/lib/app-error/app-error';
 import { type UserStoreApiService, type UserApiService, type UserTokenService } from 'services/user';
 
 export interface Dependencies {
@@ -20,33 +21,30 @@ export class UserFeature implements UserModel {
 
     async signedUp (email: string, password: string): Promise<void> {
         try {
-            this.#storeApiService.userSignsUp();
-
             const { user, token } = await this.#apiService.signUp(email, password);
             this.#tokenService.saveToken(token);
 
             this.#storeApiService.userSignedUp(user);
-        } catch (error) {
+        } catch (e) {
             this.#storeApiService.userSignedOut();
+            throw getSafeError(e);
         }
     }
 
     async signedIn (email: string, password: string): Promise<void> {
         try {
-            this.#storeApiService.userSignsIn();
-
             const { user, token } = await this.#apiService.signIn(email, password);
-            this.#tokenService.saveToken(token);
 
+            this.#tokenService.saveToken(token);
             this.#storeApiService.userSignedIn(user);
-        } catch (error) {
+        } catch (e) {
             this.#storeApiService.userSignedOut();
+            throw getSafeError(e);
         }
     }
 
     async signedOut (): Promise<void> {
         try {
-            this.#storeApiService.userSignsOut();
             void this.#apiService.signOut();
         } finally {
             this.#tokenService.saveToken('');
@@ -82,7 +80,7 @@ export class UserFeature implements UserModel {
             this.#tokenService.saveToken(newToken);
 
             this.#storeApiService.userSignedIn(user);
-        } catch (error) {
+        } catch (e) {
             this.#storeApiService.userSignedOut();
         }
     }

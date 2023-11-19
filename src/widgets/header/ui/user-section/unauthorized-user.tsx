@@ -1,3 +1,4 @@
+import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
 import c from './unauthorized-user.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
@@ -9,16 +10,14 @@ export const UnauthorizedUser: RC = () => {
             <LinkButton
                 theme='clear'
                 size='s'
-                // TODO link
-                to={''}
+                to={publicRoutePaths.SIGN_IN}
             >
                 Войти
             </LinkButton>
             <LinkButton
                 theme='default'
                 size='s'
-                // TODO link
-                to={''}
+                to={publicRoutePaths.SIGN_UP}
             >
                 Регистрация
             </LinkButton>

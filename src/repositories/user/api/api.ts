@@ -69,6 +69,8 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
         } catch (e) {
             if (e instanceof FirebaseError) {
                 throw new AppError(e.code);
+            } else if (e instanceof AppError) {
+                throw e;
             }
             throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
         }

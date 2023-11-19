@@ -1,10 +1,13 @@
 import { type AuthStatus, type User } from 'models/user';
 import { type ApiRepository } from 'repositories/types';
 
+export interface UserWithToken { user: User, token: string }
+
 export interface UserApiRepository extends ApiRepository {
-    signIn: (email: string, password: string) => Promise<User>
-    signUp: (email: string, password: string) => Promise<User>
+    signIn: (email: string, password: string) => Promise<UserWithToken>
+    signUp: (email: string, password: string) => Promise<UserWithToken>
     signOut: () => Promise<void>
+    validateToken: (token: string) => Promise<UserWithToken | null>
 };
 
 export interface UserStoreApiRepository extends ApiRepository {
@@ -16,4 +19,9 @@ export interface UserStoreApiRepository extends ApiRepository {
     userSignedOut: () => void
     getUser: () => User
     getAuthStatus: () => AuthStatus
+};
+
+export interface UserTokenRepository extends ApiRepository {
+    saveToken: (token: string) => void
+    readToken: () => string | null
 };

@@ -7,4 +7,5 @@ export interface UserDbModel {
 export interface UserCredential {
     id: string
     email: string
+    token: string
 };

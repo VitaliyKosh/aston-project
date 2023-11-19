@@ -15,4 +15,5 @@ export interface UserModel {
     signedOut: () => Promise<void>
     getUser: () => User
     getAuthStatus: () => AuthStatus
+    validateToken: () => Promise<void>
 };

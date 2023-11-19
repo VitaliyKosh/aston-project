@@ -1,16 +1,20 @@
 import { FirebaseError } from 'firebase/app';
 import { type User } from 'models/user';
-import { type UserApiRepository } from '../types';
+import { type UserApiRepository, type UserWithToken } from '../types';
 import { FirebaseApiRepository } from 'repositories/firebase';
 import { type UserCredential } from 'firebase/auth';
-import { AppError, BaseErrorCodes } from 'repositories/error';
+import { AppError, AuthErrorCodes, BaseErrorCodes } from 'repositories/error';
 
 export class UserFirebaseApiRepository extends FirebaseApiRepository implements UserApiRepository {
-    public async signIn (email: string, password: string): Promise<User> {
+    public async signIn (email: string, password: string): Promise<UserWithToken> {
         try {
             const userCredential = await this.api.signIn(email, password);
+            const token = await userCredential.user.getIdToken();
             const user = UserFirebaseApiRepository.userCredentialToModel(userCredential);
-            return user;
+            return {
+                user,
+                token
+            };
         } catch (e) {
             if (e instanceof FirebaseError) {
                 throw new AppError(e.code);
@@ -19,11 +23,15 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
         }
     }
 
-    public async signUp (email: string, password: string): Promise<User> {
+    public async signUp (email: string, password: string): Promise<UserWithToken> {
         try {
             const userCredential = await this.api.signUp(email, password);
+            const token = await userCredential.user.getIdToken();
             const user = UserFirebaseApiRepository.userCredentialToModel(userCredential);
-            return user;
+            return {
+                user,
+                token
+            };
         } catch (e) {
             if (e instanceof FirebaseError) {
                 throw new AppError(e.code);
@@ -38,6 +46,31 @@ export class UserFirebaseApiRepository extends FirebaseApiRepository implements 
         } catch (e) {
             if (e instanceof FirebaseError) {
                 throw new AppError(e.code);
+            }
+            throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
+        }
+    }
+
+    public async validateToken (): Promise<UserWithToken> {
+        try {
+            const user = await this.api.refresh();
+
+            if (!user) {
+                throw new AppError(AuthErrorCodes.UNAUTHORIZED);
+            }
+
+            return {
+                user: {
+                    email: user.email ?? '',
+                    id: user.uid
+                },
+                token: await user.getIdToken()
+            };
+        } catch (e) {
+            if (e instanceof FirebaseError) {
+                throw new AppError(e.code);
+            } else if (e instanceof AppError) {
+                throw e;
             }
             throw new AppError(BaseErrorCodes.UNKNOWN_ERROR);
         }

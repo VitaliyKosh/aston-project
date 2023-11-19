@@ -5,7 +5,6 @@ export function useAuth (): void {
     const app = getApp();
 
     useEffect(() => {
-        // TODO проверка токена
-        void app.user.signedIn('1234', '123');
+        void app.user.validateToken();
     }, []);
 };

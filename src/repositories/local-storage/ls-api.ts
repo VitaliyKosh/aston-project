@@ -1,7 +1,7 @@
 import { ApiRepository } from 'repositories/types';
 import { v4 } from 'uuid';
 import { type UserDbModel, type UserCredential } from './types';
-import { AppError, AuthErrorCodes, BaseErrorCodes } from 'repositories/error';
+import { AppError, AuthErrorCodes, BaseErrorCodes } from 'shared/lib/app-error/app-error';
 import { type FavoriteItem, type Favorites } from 'models/favorites';
 
 const dbPrefix = 'db';

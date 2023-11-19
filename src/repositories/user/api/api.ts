@@ -3,7 +3,7 @@ import { type User } from 'models/user';
 import { type UserApiRepository, type UserWithToken } from '../types';
 import { FirebaseApiRepository } from 'repositories/firebase';
 import { type UserCredential } from 'firebase/auth';
-import { AppError, AuthErrorCodes, BaseErrorCodes } from 'repositories/error';
+import { AppError, AuthErrorCodes, BaseErrorCodes } from 'shared/lib/app-error/app-error';
 
 export class UserFirebaseApiRepository extends FirebaseApiRepository implements UserApiRepository {
     public async signIn (email: string, password: string): Promise<UserWithToken> {

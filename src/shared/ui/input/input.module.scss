@@ -4,6 +4,7 @@
     box-shadow: var(--on-bg-shadow);
     transition: transform 0.2s;
     width: 100%;
+    border-radius: var(--element-border-radius);
 }
 
 .input:focus {
@@ -14,19 +15,16 @@
     height: 25px;
     font: var(--font-s);
     padding: 5px 10px;
-    border-radius: 20px;
 }
 
 .size-m {
     height: 30px;
     font: var(--font-m);
     padding: 5px 12px;
-    border-radius: 20px;
 }
 
 .size-l {
     height: 35px;
     font: var(--font-l);
     padding: 5px 14px;
-    border-radius: 20px;
 }

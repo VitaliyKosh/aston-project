@@ -1,0 +1,24 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+
+    background-color: var(--on-bg-color);
+    box-shadow: var(--on-bg-shadow);
+    border-radius: var(--box-border-radius);
+}
+
+.header {
+    font: var(--font-l);
+    font-weight: bold;
+}
+
+.submitButton {
+    margin-top: 10px;
+}
+
+.error {
+    font: var(--font-s);
+    color: var(--error-color);
+}

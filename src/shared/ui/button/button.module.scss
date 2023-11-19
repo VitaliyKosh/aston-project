@@ -8,6 +8,7 @@
     outline: none;
     background-color: var(--primary-color);
     color: var(--primary-color-inverted);
+    border-radius: var(--element-border-radius);
 }
 
 .theme-default:hover {
@@ -22,21 +23,18 @@
     height: 25px;
     font: var(--font-s);
     padding: 5px 10px;
-    border-radius: 20px;
 }
 
 .size-m {
     height: 30px;
     font: var(--font-m);
     padding: 5px 10px;
-    border-radius: 20px;
 }
 
 .size-l {
     height: 35px;
     font: var(--font-l);
     padding: 5px 10px;
-    border-radius: 20px;
 }
 
 .theme-clear {

@@ -1,11 +1,11 @@
 import { type PostCard } from 'models/post-card-list';
-import { type PostStoreApiRepository } from 'repositories/post-card-list/store-api/store-api';
+import { type PostCardListStoreApiRepository } from 'repositories/post-card-list/store-api/store-api';
 import { type ApiService } from 'services/types';
 
 export class PostCardListStoreApiService implements ApiService {
-    apiRepository: PostStoreApiRepository;
+    apiRepository: PostCardListStoreApiRepository;
 
-    constructor (apiRepository: PostStoreApiRepository) {
+    constructor (apiRepository: PostCardListStoreApiRepository) {
         this.apiRepository = apiRepository;
     }
 

@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query';
 import { type PostCardListDto } from './types';
+import { type PostCard } from 'models/post-card-list';
 
 export const postCardListSlice = createApi({
     reducerPath: 'postCardListAPI',
@@ -8,13 +9,16 @@ export const postCardListSlice = createApi({
     tagTypes: ['PostCardList'],
     refetchOnMountOrArgChange: true,
     endpoints: (build) => ({
-        fetchPostCardList: build.query<PostCardListDto, number>({
+        fetchPostCardList: build.query<PostCard[], number>({
             query: (limit: number = 5) => ({
                 url: '/postCardList',
                 params: {
                     _limit: limit
                 }
             }),
+            transformResponse: (data: PostCardListDto) => {
+                return data.postCards;
+            },
             providesTags: result => ['PostCardList']
         })
     })

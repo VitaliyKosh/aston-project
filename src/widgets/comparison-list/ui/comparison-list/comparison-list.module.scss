@@ -1,0 +1,41 @@
+.comparisonList {
+    background-color: var(--on-bg-color);
+    overflow-x: auto;
+    box-shadow: var(--box-shadow);
+}
+
+.empty {
+    margin: 20px;
+}
+
+.table {
+    border-collapse: collapse;
+}
+
+.row:nth-child(odd) {
+    &.light {
+        background: #00000008
+    }
+
+    &.dark {
+        background: #FFFFFF08
+    }
+}
+
+.row:first-child {
+    &.light {
+        background: #00000015
+    }
+
+    &.dark {
+        background: #FFFFFF15
+    }
+}
+
+.cell {
+    padding: 10px;
+}
+
+.cell:first-child {
+    padding: 10px 20px;
+}

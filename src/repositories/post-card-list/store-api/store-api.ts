@@ -3,7 +3,7 @@ import { postCardListSlice } from './store-slice';
 import { type PostCard } from 'models/post-card-list';
 import { AppError, PostErrorCodes } from 'shared/lib/app-error/app-error';
 
-export class PostStoreApiRepository extends ReduxApiRepository {
+export class PostCardListStoreApiRepository extends ReduxApiRepository {
     public async getPostCardList (count: number): Promise<PostCard[]> {
         const { data } = await this.dispatch(postCardListSlice.endpoints.fetchPostCardList.initiate(count));
 
@@ -11,6 +11,6 @@ export class PostStoreApiRepository extends ReduxApiRepository {
             throw new AppError(PostErrorCodes.FETCH_POST_CARDS_FAIL);
         }
 
-        return data.postCards;
+        return data;
     }
 }

@@ -1,0 +1,13 @@
+.imageCell {
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--element-border-radius);
+}
+
+.img {
+    max-width: 120px;
+    max-height: 120px;
+}
+

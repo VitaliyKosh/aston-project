@@ -1,1 +1,1 @@
-export { PostStoreApiRepository } from './store-api/store-api';
+export { postCardListSlice } from './store-api/store-slice';

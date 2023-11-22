@@ -1,4 +1,4 @@
-import { type SpecificationNames } from 'models/post';
+import { type SpecificationNames } from 'shared/models/post';
 
 export const specificationDictionary: SpecificationNames = {
     year: 'Год',

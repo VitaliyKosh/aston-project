@@ -1,7 +1,7 @@
 import { type RC } from 'shared/types/component';
 import { useObservableState } from 'repositories/redux/hooks/use-observable-state';
 import { getApp } from 'shared/helpers/get-app';
-import { AuthStatus } from 'models/user';
+import { AuthStatus } from 'shared/models/user';
 import { AuthorizedUser } from './authorized-user';
 import { UnauthorizedUser } from './unauthorized-user';
 

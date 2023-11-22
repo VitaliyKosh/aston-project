@@ -1,4 +1,4 @@
-import { type PostNames } from 'models/post';
+import { type PostNames } from 'shared/models/post';
 
 export const postDictionary: PostNames = {
     id: 'id',

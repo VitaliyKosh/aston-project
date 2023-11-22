@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query';
 import { type PostDto } from './types';
-import { type Post } from 'models/post';
+import { type Post } from 'shared/models/post';
 
 export const postSlice = createApi({
     reducerPath: 'postAPI',

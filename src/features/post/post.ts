@@ -1,4 +1,4 @@
-import { type PostModel, type Post } from 'models/post';
+import { type PostModel, type Post } from 'shared/models/post';
 import { type PostStoreApiService } from 'services/post';
 
 export interface Dependencies {

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query';
 import { type PostCardListDto } from './types';
-import { type PostCard } from 'models/post-card-list';
+import { type PostCard } from 'shared/models/post-card-list';
 
 export const postCardListSlice = createApi({
     reducerPath: 'postCardListAPI',

@@ -1,4 +1,4 @@
-import { type PostDescription, type PostImg, type PostTitle } from 'models/post';
+import { type PostDescription, type PostImg, type PostTitle } from 'shared/models/post';
 
 export interface PostDto {
     post: {

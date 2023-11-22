@@ -2,7 +2,7 @@ import {
     type PostDescription,
     type PostImg,
     type PostTitle
-} from 'models/post';
+} from 'shared/models/post';
 import c from './post-card.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';

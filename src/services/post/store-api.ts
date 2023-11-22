@@ -1,4 +1,4 @@
-import { type Post } from 'models/post';
+import { type Post } from 'shared/models/post';
 import { type PostStoreApiRepository } from 'repositories/post/store-api/store-api';
 import { type ApiService } from 'services/types';
 

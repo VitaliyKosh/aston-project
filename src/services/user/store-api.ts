@@ -1,4 +1,4 @@
-import { type AuthStatus, type User } from 'models/user';
+import { type AuthStatus, type User } from 'shared/models/user';
 import { type UserStoreApiRepository } from 'repositories/user';
 import { type ApiService } from 'services/types';
 

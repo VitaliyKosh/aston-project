@@ -1,4 +1,4 @@
-import { type PostCard } from 'models/post-card-list';
+import { type PostCard } from 'shared/models/post-card-list';
 import { type PostCardListStoreApiRepository } from 'repositories/post-card-list/store-api/store-api';
 import { type ApiService } from 'services/types';
 

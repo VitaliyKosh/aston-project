@@ -1,4 +1,4 @@
-import { AuthStatus } from 'models/user';
+import { AuthStatus } from 'shared/models/user';
 import { useObservableState } from 'repositories/redux/hooks/use-observable-state';
 import { useRTKAsyncState } from 'repositories/redux/hooks/use-rtk-async-state';
 import { getApp } from 'shared/helpers/get-app';

@@ -1,4 +1,4 @@
-import { type PostCard } from 'models/post-card-list';
+import { type PostCard } from 'shared/models/post-card-list';
 
 export interface PostCardListDto {
     postCards: PostCard[]

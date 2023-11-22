@@ -1,5 +1,5 @@
 import { type FavoritesApiService } from 'services/favorites';
-import { type Favorites, type FavoritesModel } from 'models/favorites';
+import { type Favorites, type FavoritesModel } from 'shared/models/favorites';
 
 export interface Dependencies {
     apiService: FavoritesApiService

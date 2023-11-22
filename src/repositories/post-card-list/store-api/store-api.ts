@@ -1,6 +1,6 @@
 import { ReduxApiRepository } from 'repositories/redux';
 import { postCardListSlice } from './store-slice';
-import { type PostCard } from 'models/post-card-list';
+import { type PostCard } from 'shared/models/post-card-list';
 import { AppError, PostErrorCodes } from 'shared/lib/app-error/app-error';
 
 export class PostCardListStoreApiRepository extends ReduxApiRepository {

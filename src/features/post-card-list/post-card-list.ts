@@ -1,5 +1,5 @@
 import { type PostCardListStoreApiService } from 'services/post-card-list';
-import { type PostCard, type PostCardListModel } from 'models/post-card-list';
+import { type PostCard, type PostCardListModel } from 'shared/models/post-card-list';
 
 export interface Dependencies {
     storeApiService: PostCardListStoreApiService

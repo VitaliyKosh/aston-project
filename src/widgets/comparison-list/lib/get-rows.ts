@@ -1,4 +1,4 @@
-import { type Post } from 'models/post';
+import { type Post } from 'shared/models/post';
 import { type Row, keys } from '../types';
 import { isObjectKey } from 'shared/helpers/is-object-key';
 

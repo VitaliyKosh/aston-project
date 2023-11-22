@@ -1,4 +1,4 @@
-import { type Post } from 'models/post';
+import { type Post } from 'shared/models/post';
 import type React from 'react';
 import { createContext } from 'react';
 

@@ -2,7 +2,7 @@ import { getApp } from 'shared/helpers/get-app';
 import { type RC } from 'shared/types/component';
 import { PageTitle } from 'shared/ui/page-title/page-title';
 import { useEffect, useState } from 'react';
-import { type Post } from 'models/post';
+import { type Post } from 'shared/models/post';
 import { FavoriteList } from 'widgets/comparison-list';
 
 export const FavoritesPage: RC = () => {

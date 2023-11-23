@@ -1,6 +1,6 @@
 import { type RC } from 'shared/types/component';
 import { AppRouter } from './app-router';
-import { AuthStatus } from 'models/user';
+import { AuthStatus } from 'shared/models/user';
 import { useObservableState } from 'repositories/redux/hooks/use-observable-state';
 import { type ReactElement } from 'react';
 import { privateRouteConfig, publicRouteConfig } from '../config';

@@ -1,4 +1,9 @@
 .pageWrapper {
     padding-top: var(--header-height);
+    height: 100%;
+}
+
+.pageWrapper > div {
+    height: 100%;
 }
   

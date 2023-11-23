@@ -1,11 +1,11 @@
 import c from './post-card-list.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
-import { type PostCard as TPostCard } from 'models/post-card-list';
+import { type PostCard as TPostCard } from 'shared/models/post-card-list';
 import { PostCard } from 'shared/ui/post-card/post-card';
 import { useEffect, useState } from 'react';
 import { getApp } from 'shared/helpers/get-app';
-import { type Favorites } from 'models/favorites';
+import { type Favorites } from 'shared/models/favorites';
 
 interface Props {
     className?: string

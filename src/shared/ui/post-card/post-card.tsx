@@ -2,7 +2,7 @@ import {
     type PostDescription,
     type PostImg,
     type PostTitle
-} from 'models/post';
+} from 'shared/models/post';
 import c from './post-card.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
@@ -11,7 +11,7 @@ import { faHeart as favoriteIcon } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as notFavoriteIcon } from '@fortawesome/free-regular-svg-icons';
 import { Button } from '../button/button';
 import { getApp } from 'shared/helpers/get-app';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Props {
     className?: string
@@ -44,6 +44,10 @@ export const PostCard: RC<Props> = ({
             setFavoriteLocal(true);
         }
     };
+
+    useEffect(() => {
+        setFavoriteLocal(isFavorite);
+    }, [isFavorite]);
 
     return (
         <div className={classNames([c.postCard, className])}>

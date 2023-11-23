@@ -1,4 +1,11 @@
-import { forwardRef, type ChangeEvent, type ForwardedRef, type HTMLInputTypeAttribute } from 'react';
+import {
+    forwardRef,
+    type ChangeEvent,
+    type ForwardedRef,
+    type HTMLInputTypeAttribute,
+    type KeyboardEventHandler,
+    type FocusEventHandler
+} from 'react';
 import c from './input.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
@@ -14,6 +21,9 @@ export interface Props {
     value?: string
     setValue?: (value: string) => void
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+    onKeyUp?: KeyboardEventHandler<HTMLInputElement>
+    onFocus?: FocusEventHandler<HTMLInputElement>
+    onBlur?: FocusEventHandler<HTMLInputElement>
     placeholder?: string
 }
 
@@ -23,6 +33,9 @@ export const Input: RC<Props> = ({
     type = 'text',
     setValue,
     onChange,
+    onKeyUp,
+    onFocus,
+    onBlur,
     placeholder = '',
     ...otherProps
 }) => {
@@ -35,6 +48,9 @@ export const Input: RC<Props> = ({
             ])}
             type={type}
             placeholder={placeholder}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onKeyUp={onKeyUp}
             onChange={(e) => {
                 if (onChange) {
                     onChange(e);

@@ -1,4 +1,4 @@
-import { type AuthStatus, type User } from 'models/user';
+import { type AuthStatus, type User } from 'shared/models/user';
 import { type ApiRepository } from 'repositories/types';
 
 export interface UserWithToken { user: User, token: string }

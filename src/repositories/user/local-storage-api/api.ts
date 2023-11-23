@@ -1,4 +1,4 @@
-import { type User } from 'models/user';
+import { type User } from 'shared/models/user';
 import { type UserWithToken, type UserApiRepository } from '../types';
 import { LSApiRepository } from 'repositories/local-storage/ls-api';
 import { type UserCredential } from 'repositories/local-storage';

@@ -4,6 +4,9 @@ import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
 import { Button } from 'shared/ui/button/button';
 import { useFavoriteRows } from 'widgets/comparison-list/providers/favorite-list-provider';
+import { Link } from 'react-router-dom';
+import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
+import { getLocationWithParams } from 'shared/helpers/get-location';
 
 interface Props {
     className?: string
@@ -22,7 +25,12 @@ export const TitleCell: RC<Props> = ({ className, value, id }) => {
 
     return (
         <div className={classNames([c.titleCell, className])}>
-            <div>{value}</div>
+            <Link
+                className={c.title}
+                to={getLocationWithParams(publicRoutePaths.POST, { id })}
+            >
+                {value}
+            </Link>
             <Button
                 size='s'
                 onClick={handleRemoveClick}

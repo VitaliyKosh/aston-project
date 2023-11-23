@@ -1,0 +1,29 @@
+.postPage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.imgWrapper {
+    // width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    border-radius: 7px;
+    background-color: white;
+}
+
+.img {
+    max-width: 80%;
+    max-height: 80%;
+}
+  

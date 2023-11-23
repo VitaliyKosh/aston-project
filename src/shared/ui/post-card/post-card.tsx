@@ -12,6 +12,9 @@ import { faHeart as notFavoriteIcon } from '@fortawesome/free-regular-svg-icons'
 import { Button } from '../button/button';
 import { getApp } from 'shared/helpers/get-app';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
+import { getLocationWithParams } from 'shared/helpers/get-location';
 
 interface Props {
     className?: string
@@ -52,7 +55,11 @@ export const PostCard: RC<Props> = ({
     return (
         <div className={classNames([c.postCard, className])}>
             <div className={c.titleWrapper}>
-                <div className={c.title}>{title}</div>
+                <Link
+                    to={getLocationWithParams(publicRoutePaths.POST, { id })}
+                >
+                    <div className={c.title}>{title}</div>
+                </Link>
                 {isAuth && (
                     <Button
                         theme="clear"
@@ -66,9 +73,12 @@ export const PostCard: RC<Props> = ({
                 )}
             </div>
             <div className={c.imgDescriptionWrapper}>
-                <div className={c.imgWrapper}>
+                <Link
+                    className={c.imgWrapper}
+                    to={getLocationWithParams(publicRoutePaths.POST, { id })}
+                >
                     <img src={img} placeholder={title} className={c.img} />
-                </div>
+                </Link>
                 <div>
                     <div className={c.description}>{description}</div>
                 </div>

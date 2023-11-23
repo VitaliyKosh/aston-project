@@ -23,7 +23,8 @@ export const MainPage: RC = () => {
 
     return (
         <div className={c.mainPage}>
-            <SearchBar className={c.searchBar}/>
+            <SearchBar />
+            {query && <div>Результатов по запросу {'"'}{query}{'"'}: {isLoading ? 'поиск...' : postCards?.length}</div>}
             {postCards && !isLoading
                 ? (
                     <PostCardList

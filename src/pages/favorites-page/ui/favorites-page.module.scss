@@ -1,6 +1,9 @@
-.mainPage {
+.favoritesPage {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px;
+}
+
+.title {
+    padding: 0 20px;
 }

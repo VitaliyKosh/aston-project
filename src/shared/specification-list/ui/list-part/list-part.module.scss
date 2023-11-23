@@ -1,0 +1,13 @@
+.part {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font: var(--font-m);
+    font-weight: 500;
+}
+
+.description {
+    font: var(--font-s);
+}

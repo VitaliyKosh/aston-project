@@ -1,4 +1,5 @@
 import { getApp } from 'shared/helpers/get-app';
+import c from './favorites-page.module.scss';
 import { type RC } from 'shared/types/component';
 import { PageTitle } from 'shared/ui/page-title/page-title';
 import { useEffect, useState } from 'react';
@@ -32,11 +33,9 @@ export const FavoritesPage: RC = () => {
         void getFavorites();
     }, []);
 
-    // TODO loader
-
     return (
-        <div>
-            <PageTitle>Избранное</PageTitle>
+        <div className={c.favoritesPage}>
+            <PageTitle className={c.title}>Избранное</PageTitle>
             {isLoading
                 ? <PageLoader/>
                 : (

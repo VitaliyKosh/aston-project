@@ -38,10 +38,10 @@ export const ComparisonList: RC<Props> = ({ className }) => {
                                 className={c.cell}
                                 title={comparisonDictionary[key]}
                             />
-                            {values.map((cell) => (
+                            {values.map((cell, i) => (
                                 <ComparisonCell
                                     className={c.cell}
-                                    key={key + cell.id}
+                                    key={key + cell.id + i.toString()}
                                     cell={cell}
                                 />
                             ))}

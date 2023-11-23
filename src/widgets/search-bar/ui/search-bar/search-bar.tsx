@@ -9,6 +9,7 @@ import { type Sagest } from 'widgets/search-bar/types/sagest';
 import { getSagestList } from 'widgets/search-bar/lib/get-sagest-list';
 import { useDebounce } from 'widgets/search-bar/hooks/use-debounce';
 import { createSearchParams, useSearchParams } from 'react-router-dom';
+import { useTimeoutLoading } from 'shared/hooks/use-timeout-loading';
 
 interface Props {
     className?: string
@@ -21,7 +22,7 @@ export const SearchBar: RC<Props> = ({ className }) => {
 
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [sagestList, setSagestList] = useState<Sagest[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const { isTimeoutLoading, setIsRealLoading } = useTimeoutLoading(100);
     const debouncedSearchTerm = useDebounce(searchQuery, 500);
 
     const searchingSagest = async (query: string, unmounted: { value: boolean }): Promise<void> => {
@@ -30,11 +31,11 @@ export const SearchBar: RC<Props> = ({ className }) => {
             return;
         }
 
-        setIsLoading(true);
+        setIsRealLoading(true);
 
         const { data: postCardList } = await app.postCardList.searchingCardList(query.toLocaleLowerCase(), 10);
 
-        setIsLoading(false);
+        setIsRealLoading(false);
 
         if (unmounted.value || !postCardList) {
             return;
@@ -76,7 +77,7 @@ export const SearchBar: RC<Props> = ({ className }) => {
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
                 sagestList={sagestList}
-                isLoading={isLoading}
+                isLoading={isTimeoutLoading}
             />
             <Button
                 size='s'

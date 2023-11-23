@@ -16,10 +16,13 @@ interface Props {
 export const PostCardList: RC<Props> = ({ className, postCards, isAuth }) => {
     const app = getApp();
     const [favorites, setFavorites] = useState<Favorites>([]);
+    const [isFavoritesLoading, setIsFavoritesLoading] = useState<boolean>(true);
 
     const readFavorites = async (): Promise<void> => {
+        setIsFavoritesLoading(true);
         const favoritesData = await app.favorites.readFavorites();
         setFavorites(favoritesData);
+        setIsFavoritesLoading(false);
     };
 
     useEffect(() => {
@@ -30,7 +33,7 @@ export const PostCardList: RC<Props> = ({ className, postCards, isAuth }) => {
 
     return (
         <div className={classNames([c.postCardList, className])}>
-            {postCards.map((card) => {
+            {!isFavoritesLoading && postCards.map((card) => {
                 return (
                     <PostCard
                         key={card.id}

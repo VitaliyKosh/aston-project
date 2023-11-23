@@ -1,9 +1,14 @@
 .pageWrapper {
-    padding-top: var(--header-height);
     height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
 }
 
 .pageWrapper > div {
+    padding-top: var(--header-height);
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
   

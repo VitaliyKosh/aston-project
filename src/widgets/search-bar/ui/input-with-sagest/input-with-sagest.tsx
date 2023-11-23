@@ -47,34 +47,36 @@ export const InputWithSagest: RC<Props> = ({
             {isSagestDisplay && (sagestList.length > 0 || isLoading) && <div
                 className={classNames([c.sagestList], { [c.show]: showClass })}
             >
-                {sagestList.map((s) => {
-                    return (
-                        <div
-                            key={s.id}
-                            className={c.sagest}
-                        >
-                            <div className={c.imgWrapper}>
-                                <img
-                                    src={s.img}
-                                    alt={s.title.substring(0, 10)}
-                                    className={c.img}
-                                />
+                {isLoading
+                    ? <div className={c.loaderWrapper}>
+                        <Loader className={c.loader}/>
+                    </div>
+                    : sagestList.map((s) => {
+                        return (
+                            <div
+                                key={s.id}
+                                className={c.sagest}
+                            >
+                                <div className={c.imgWrapper}>
+                                    <img
+                                        src={s.img}
+                                        alt={s.title.substring(0, 10)}
+                                        className={c.img}
+                                    />
+                                </div>
+                                <div className={c.title}>{s.title}</div>
+                                <div className={c.description}>
+                                    <HighlightText
+                                        id={s.id}
+                                        delimiter='|'
+                                    >
+                                        {s.description}
+                                    </HighlightText>
+                                </div>
                             </div>
-                            <div className={c.title}>{s.title}</div>
-                            <div className={c.description}>
-                                <HighlightText
-                                    id={s.id}
-                                    delimiter='|'
-                                >
-                                    {s.description}
-                                </HighlightText>
-                            </div>
-                        </div>
-                    );
-                })}
-                {isLoading && <div className={c.loaderWrapper}>
-                    <Loader className={c.loader}/>
-                </div>}
+                        );
+                    })
+                }
             </div>}
             <InputWithRef
                 className={c.input}

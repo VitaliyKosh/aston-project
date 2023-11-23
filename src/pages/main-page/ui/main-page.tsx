@@ -23,7 +23,7 @@ export const MainPage: RC = () => {
 
     return (
         <div className={c.mainPage}>
-            <SearchBar />
+            <SearchBar className={c.searchBar}/>
             {postCards && !isLoading
                 ? (
                     <PostCardList

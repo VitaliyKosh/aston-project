@@ -1,9 +1,11 @@
 .dark {
     --bg-color: #161618;
     --bg-inverted-color: #F2F2F5 ;
-    --bg-inverted-color-inactive: #333336;
+    --bg-inverted-color-inactive: #545459;
 
     --on-bg-color: #242427;
+    --on-bg-color-active-1: #2a2a2d;
+    --on-bg-color-active-2: #323237;
     --on-bg-color-inverted: #F2F2F5;
 
     --on-bg-shadow: 0 0 10px #00000020;
@@ -14,8 +16,9 @@
     --primary-color-active-2: #dcdce0;
     --primary-color-inverted: #3e3e44;
 
-    --secondary-color: rgb(3 0 164);
-    --secondary-color-inverted: rgb(0 117 0);
+    --secondary-color: rgb(188, 62, 62);
+    --secondary-color-inverted: rgb(68, 0, 24);
 
     --error-color: rgb(126, 25, 25);
+    --favorite-color: rgb(188, 62, 62);
 }

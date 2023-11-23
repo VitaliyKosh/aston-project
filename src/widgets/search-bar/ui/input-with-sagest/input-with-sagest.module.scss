@@ -1,0 +1,95 @@
+.inputWithSagest {
+    width: 100%;
+    gap: 5px;
+    position: relative;
+}
+
+.input {
+    z-index: 20;
+    position: absolute;
+}
+
+.sagestList {
+    width: calc(100% + 10px);
+    top: -5px;
+    left: -5px;
+    position: absolute;
+    z-index: 1;
+    padding: 40px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    border-radius: var(--element-border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: var(--on-bg-color);
+
+    transform: scale(1);
+    transition: transform 0.3s 0s, opacity 0.3s 0s;
+    opacity: 0;
+    transform-origin: 50% calc(25px / 2);
+
+    overflow: hidden;
+}
+
+.sagestList.show {
+    opacity: 1;
+    transform: scale(1.02);
+    transition: transform 0.3s 0s, opacity 0.3s 0.2s;
+}
+
+.sagest {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    cursor: pointer;
+    border-radius: var(--element-border-radius)
+}
+
+.sagest:hover {
+    background-color: var(--on-bg-color-active-1);
+}
+
+.imgWrapper {
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.title {
+    font: var(--font-s);
+    text-wrap: nowrap;
+}
+
+.description {
+    font: var(--font-xs);
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 2; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.loaderWrapper {
+    width: 100%;
+    display: flex;
+}
+
+.loader {
+    height: 30px;
+    margin: 0 auto;
+}
+
+.loader div {
+    top: 8px;
+}

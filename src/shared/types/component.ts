@@ -1,3 +1,7 @@
+import { type InferProps } from 'prop-types';
 import { type ReactNode } from 'react';
 
-export type RC<T = Record<string, unknown>> = (props: T) => ReactNode;
+export interface RC<T = Record<string, unknown>> {
+    propTypes?: Record<string, InferProps<T>>
+    (props: T): ReactNode
+}

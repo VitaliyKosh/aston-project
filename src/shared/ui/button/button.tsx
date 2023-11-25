@@ -2,11 +2,12 @@ import React, { type ButtonHTMLAttributes } from 'react';
 import c from './button.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
+import PropTypes from 'prop-types';
 
 export type ButtonTheme = 'clear' | 'default';
 export type ButtonSize = 's' | 'm' | 'l';
 
-interface Props {
+export interface Props {
     className?: string
     theme?: ButtonTheme
     size?: ButtonSize
@@ -39,4 +40,13 @@ export const Button: RC<Props> = props => {
             {children}
         </button>
     );
+};
+
+Button.propTypes = {
+    className: PropTypes.string,
+    theme: PropTypes.oneOf(['clear', 'default']),
+    size: PropTypes.oneOf(['s', 'm', 'l']),
+    type: PropTypes.string,
+    children: PropTypes.node,
+    onClick: PropTypes.func
 };

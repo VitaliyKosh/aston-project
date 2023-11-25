@@ -9,7 +9,7 @@ import { SearchBar } from 'widgets/search-bar';
 import { useSearchParams } from 'react-router-dom';
 import { PageLoader } from 'widgets/page-loader';
 
-export const MainPage: RC = () => {
+const MainPage: RC = () => {
     const app = getApp();
 
     const [searchParams] = useSearchParams();
@@ -37,3 +37,5 @@ export const MainPage: RC = () => {
         </div>
     );
 };
+
+export default MainPage;

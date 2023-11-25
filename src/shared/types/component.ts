@@ -1,7 +1,3 @@
-import { type InferProps } from 'prop-types';
-import { type ReactNode } from 'react';
+import { type FunctionComponent } from 'react';
 
-export interface RC<T = Record<string, unknown>> {
-    propTypes?: Record<string, InferProps<T>>
-    (props: T): ReactNode
-}
+export type RC<T = Record<string, unknown>> = FunctionComponent<T>;

@@ -1,1 +1,1 @@
-export { PostPage } from './ui/post-page';
+export { PostPageAsync as PostPage } from './ui/post-page.async';

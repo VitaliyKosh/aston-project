@@ -18,5 +18,5 @@ export const PageTitle: RC<Props> = ({ className, children }) => {
 
 PageTitle.propTypes = {
     className: PropTypes.string,
-    children: PropTypes.node.isRequired
+    children: PropTypes.string.isRequired
 };

@@ -16,7 +16,7 @@ interface Props {
 export const PostCardList: RC<Props> = ({ className, postCards, isAuth }) => {
     const app = getApp();
     const [favorites, setFavorites] = useState<Favorites>([]);
-    const [isFavoritesLoading, setIsFavoritesLoading] = useState<boolean>(true);
+    const [isFavoritesLoading, setIsFavoritesLoading] = useState<boolean>(false);
 
     const readFavorites = async (): Promise<void> => {
         setIsFavoritesLoading(true);

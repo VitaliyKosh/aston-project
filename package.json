@@ -10,7 +10,7 @@
     "start:prod": "webpack serve --env mode=production port=3010",
     "start": "webpack serve --env port=3010",
     "serve": "npm run build:prod && serve -s build",
-    "analyze": "webpack --env mode=development analyze=1",
+    "analyze": "webpack --env mode=production analyze=1",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:css": "npx stylelint \"**/*.scss\"",

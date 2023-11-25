@@ -1,1 +1,1 @@
-export { FavoritesPage } from './ui/favorites-page';
+export { FavoritesPageAsync as FavoritesPage } from './ui/favorites-page.async';

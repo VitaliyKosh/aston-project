@@ -1,14 +1,13 @@
 import type { Meta } from '@storybook/react';
-import { type ComponentType, type JSX } from 'react';
-import { Button, type Props, type ButtonSize } from './button';
+import { type JSX } from 'react';
+import { Button, type ButtonSize } from './button';
 import { withKnobs, text, radios } from '@storybook/addon-knobs';
 import { type RadiosTypeOptionsProp } from '@storybook/addon-knobs/dist/components/types';
-import { type RC } from 'shared/types/component';
 
 const meta = {
     title: 'UI/Button',
     decorators: [withKnobs],
-    component: Button as ComponentType<RC<Props>>,
+    component: Button,
     parameters: {
         layout: 'centered'
     },

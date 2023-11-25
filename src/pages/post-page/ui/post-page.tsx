@@ -24,7 +24,7 @@ const postInitialState: Omit<Post, 'id'> = {
     slogan: ''
 };
 
-export const PostPage: RC<Props> = ({ className }) => {
+const PostPage: RC<Props> = ({ className }) => {
     const app = getApp();
     const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
@@ -68,3 +68,5 @@ export const PostPage: RC<Props> = ({ className }) => {
         </div>
     );
 };
+
+export default PostPage;

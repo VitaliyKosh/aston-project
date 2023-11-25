@@ -7,6 +7,9 @@ import { type Sagest } from '../../types/sagest';
 import { HighlightText } from '../highlight-text/highlight-text';
 import { queueMacrotask } from 'shared/helpers/queue-macrotask';
 import { Loader } from 'shared/ui/loader/loader';
+import { Link } from 'react-router-dom';
+import { getLocationWithParams } from 'shared/helpers/get-location';
+import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
 
 interface Props {
     className?: string
@@ -53,9 +56,10 @@ export const InputWithSagest: RC<Props> = ({
                     </div>
                     : sagestList.map((s) => {
                         return (
-                            <div
+                            <Link
                                 key={s.id}
                                 className={c.sagest}
+                                to={getLocationWithParams(publicRoutePaths.POST, { id: s.id })}
                             >
                                 <div className={c.imgWrapper}>
                                     <img
@@ -73,7 +77,7 @@ export const InputWithSagest: RC<Props> = ({
                                         {s.description}
                                     </HighlightText>
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })
                 }

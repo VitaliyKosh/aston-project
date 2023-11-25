@@ -46,7 +46,7 @@ Button.propTypes = {
     className: PropTypes.string,
     theme: PropTypes.oneOf(['clear', 'default']),
     size: PropTypes.oneOf(['s', 'm', 'l']),
-    type: PropTypes.string,
+    type: PropTypes.oneOf(['submit', 'reset', 'button', null, undefined]),
     children: PropTypes.node,
     onClick: PropTypes.func
 };

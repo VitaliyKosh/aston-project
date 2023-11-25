@@ -7,7 +7,7 @@ import { type Post } from 'shared/models/post';
 import { FavoriteList } from 'widgets/comparison-list';
 import { PageLoader } from 'widgets/page-loader';
 
-export const FavoritesPage: RC = () => {
+const FavoritesPage: RC = () => {
     const app = getApp();
     const [favoritePosts, setFavoritePosts] = useState<Post[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -48,3 +48,5 @@ export const FavoritesPage: RC = () => {
         </div>
     );
 };
+
+export default FavoritesPage;

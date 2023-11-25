@@ -9,7 +9,7 @@ interface Props {
     type: AuthFormType
 }
 
-export const AuthPage: RC<Props> = ({ type }) => {
+const AuthPage: RC<Props> = ({ type }) => {
     const Form = type === 'signIn' ? SignInForm : SignUpForm;
 
     return (
@@ -18,3 +18,5 @@ export const AuthPage: RC<Props> = ({ type }) => {
         </div>
     );
 };
+
+export default AuthPage;

@@ -1,12 +1,12 @@
 import { getSafeError } from 'shared/lib/app-error/app-error';
 import { type FavoritesApiRepository } from '../types';
-import { LSApiRepository } from 'repositories/local-storage/ls-api';
+import { FirebaseApiRepository } from 'repositories/firebase/';
 import { type Favorites, type FavoriteItem } from 'shared/models/favorites';
 
-export class FavoritesLSApiRepository extends LSApiRepository implements FavoritesApiRepository {
+export class FavoritesFirebaseApiRepository extends FirebaseApiRepository implements FavoritesApiRepository {
     favoriteAdded (id: FavoriteItem): void {
         try {
-            this.api.favoriteAdded(id);
+            void this.api.favoriteAdded(id);
         } catch (e) {
             throw getSafeError(e);
         }
@@ -22,7 +22,7 @@ export class FavoritesLSApiRepository extends LSApiRepository implements Favorit
 
     async readFavorites (): Promise<Favorites> {
         try {
-            return this.api.readFavorites();
+            return await this.api.readFavorites();
         } catch (e) {
             throw getSafeError(e);
         }

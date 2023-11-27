@@ -4,5 +4,5 @@ import { type ApiRepository } from 'repositories/types';
 export interface SearchHistoryApiRepository extends ApiRepository {
     searched: (query: string) => void
     searchRemoved: (id: string) => void
-    getSearchHistory: () => SearchHistory
+    getSearchHistory: () => Promise<SearchHistory>
 };

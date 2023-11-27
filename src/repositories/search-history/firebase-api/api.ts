@@ -1,9 +1,9 @@
 import { getSafeError } from 'shared/lib/app-error/app-error';
 import { type SearchHistoryApiRepository } from '../types';
-import { LSApiRepository } from 'repositories/local-storage/ls-api';
+import { FirebaseApiRepository } from 'repositories/firebase';
 import { type SearchHistory } from 'shared/models/search-history';
 
-export class SearchHistoryLSApiRepository extends LSApiRepository implements SearchHistoryApiRepository {
+export class SearchHistoryFirebaseApiRepository extends FirebaseApiRepository implements SearchHistoryApiRepository {
     searched (query: string): void {
         try {
             this.api.searched(query);
@@ -22,7 +22,7 @@ export class SearchHistoryLSApiRepository extends LSApiRepository implements Sea
 
     async getSearchHistory (): Promise<SearchHistory> {
         try {
-            return this.api.getSearchHistory();
+            return await this.api.getSearchHistory();
         } catch (e) {
             throw getSafeError(e);
         }

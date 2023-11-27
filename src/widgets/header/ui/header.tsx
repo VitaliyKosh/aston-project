@@ -8,32 +8,41 @@ import { useTheme } from 'app/providers/theme-provider';
 import { Link } from 'react-router-dom';
 import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
 import { Theme } from 'shared/types/theme';
+import { useObservableState } from 'repositories/redux/hooks/use-observable-state';
+import { getApp } from 'shared/helpers/get-app';
+import { AuthStatus } from 'shared/models/user';
 
 export const Header: RC = () => {
+    const app = getApp();
+
     const { theme, toggleTheme } = useTheme();
+    const authStatus = useObservableState(() => app.user.getAuthStatus());
 
     return (
         <div className={classNames([c.header])}>
             <div className={classNames([c.headerBG])} />
-            <div className={c.headerContent}>
-                <Logo />
-                <div
-                    className={c.centralMenu}
-                >
-                    <Link
-                        to={publicRoutePaths.MAIN}
+            {authStatus !== AuthStatus.Pending
+                ? <div className={c.headerContent}>
+                    <Logo />
+                    <div
+                        className={c.centralMenu}
                     >
-                        Главная
-                    </Link>
-                    <Button
-                        theme='clear'
-                        onClick={toggleTheme}
-                    >
-                        {theme === Theme.Light ? 'Тёмная тема' : 'Светлая тема'}
-                    </Button>
+                        <Link
+                            to={publicRoutePaths.MAIN}
+                        >
+                            Главная
+                        </Link>
+                        <Button
+                            theme='clear'
+                            onClick={toggleTheme}
+                        >
+                            {theme === Theme.Light ? 'Тёмная тема' : 'Светлая тема'}
+                        </Button>
+                    </div>
+                    <UserSection />
                 </div>
-                <UserSection />
-            </div>
+                : null
+            }
         </div>
     );
 };

@@ -13,23 +13,17 @@ export const AuthorizedUser: RC = () => {
 
     return (
         <div className={classNames([c.authorizedUser])}>
-            <Link to={privateRoutePaths.FAVORITES}>
-                <Button
-                    theme='clear'
-                    size='s'
-                >
-                    Избранное
-                </Button>
+            <Link
+                className={c.link}
+                to={privateRoutePaths.FAVORITES}
+            >
+                Избранное
             </Link>
             <Link
+                className={c.link}
                 to={privateRoutePaths.HISTORY}
             >
-                <Button
-                    theme='clear'
-                    size='s'
-                >
-                    История
-                </Button>
+                История
             </Link>
             <Button
                 theme='clear'

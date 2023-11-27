@@ -9,18 +9,18 @@ import {
     type User
 } from 'firebase/auth';
 import { ApiRepository } from 'repositories/types';
-import { getDatabase, type Database, ref, push, set, get, child } from 'firebase/database';
+import { getDatabase, type Database, ref, push, set, get, child, remove } from 'firebase/database';
 import { type Favorites } from 'shared/models/favorites';
-import { type SearchHistory, type SearchItem } from 'shared/models/search-history';
+import { type SearchHistory } from 'shared/models/search-history';
 
 export const firebaseConfig = {
-    apiKey: 'AIzaSyAsz48ayjvoOhd90CPn31tGCAxWKDlWn2M',
-    authDomain: 'aston-project-6e70a.firebaseapp.com',
-    projectId: 'aston-project-6e70a',
-    storageBucket: 'aston-project-6e70a.appspot.com',
-    messagingSenderId: '560438180298',
-    appId: '1:560438180298:web:831b32cfea37fabb157733',
-    databaseURL: 'https://aston-project-6e70a-default-rtdb.europe-west1.firebasedatabase.app/'
+    apiKey: process.env.FB_API_KEY,
+    authDomain: process.env.FB_AUTH_DOMAIN,
+    projectId: process.env.FB_PROJECT_ID,
+    storageBucket: process.env.FB_STORAGE_BUCKET,
+    messagingSenderId: process.env.FB_MESSAGING_SENDER_ID,
+    appId: process.env.FB_APP_ID,
+    databaseURL: process.env.FB_DB_URL
 };
 
 export class FirebaseApi {
@@ -119,12 +119,8 @@ export class FirebaseApi {
             return;
         }
 
-        const searchList = await this.getSearchHistory();
-
-        const newList = searchList.filter(f => f.id !== id);
-
-        const searchListRef = ref(this.database, 'history/' + userId);
-        void set(searchListRef, newList);
+        const searchRef = ref(this.database, 'history/' + userId + '/' + id);
+        void remove(searchRef);
     }
 
     async getSearchHistory (): Promise<SearchHistory> {

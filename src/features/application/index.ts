@@ -12,6 +12,8 @@ import { type PostModel } from 'shared/models/post';
 import { createPostComposition } from 'features/post';
 import { createFeatureFlagsComposition } from 'features/feature-flags';
 import { FetchApi } from 'shared/lib/network/api-libraries/fetch';
+import { type SearchHistoryModel } from 'shared/models/search-history';
+import { createSearchHistoryComposition } from 'features/search-history';
 
 export class Application {
     #reduxStoreApi!: ReduxStoreApi;
@@ -24,6 +26,7 @@ export class Application {
     user!: UserModel;
     favorites!: FavoritesModel;
     featureFlags!: FeatureFlagsModel;
+    searchHistory!: SearchHistoryModel;
 
     constructor () {
         this.setupApi();
@@ -52,6 +55,9 @@ export class Application {
         });
         this.featureFlags = createFeatureFlagsComposition({
             api: this.#fetchApi
+        });
+        this.searchHistory = createSearchHistoryComposition({
+            api: process.env.DB === 'LS' ? this.#lsApi : this.#firebaseApi
         });
     }
 

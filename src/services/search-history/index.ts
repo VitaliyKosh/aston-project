@@ -1,0 +1,1 @@
+export { SearchHistoryApiService } from './api';

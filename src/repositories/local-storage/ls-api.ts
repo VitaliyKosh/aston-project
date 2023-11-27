@@ -3,6 +3,7 @@ import { v4 } from 'uuid';
 import { type UserDbModel, type UserCredential } from './types';
 import { AppError, AuthErrorCodes, BaseErrorCodes } from 'shared/lib/app-error/app-error';
 import { type FavoriteItem, type Favorites } from 'shared/models/favorites';
+import { type SearchHistory } from 'shared/models/search-history';
 
 const dbPrefix = 'db';
 
@@ -155,6 +156,38 @@ export class LSApi {
         const userId = this.getUserIdByToken();
 
         return JSON.parse(localStorage.getItem(LSApi.getDBPath(['favorites', userId])) ?? '[]');
+    }
+
+    // SearchHistory
+
+    searched (query: string): void {
+        const userId = this.getUserIdByToken();
+
+        const searchHistory = this.getSearchHistory();
+
+        const searchItem = {
+            id: v4(),
+            query
+        };
+
+        searchHistory.push(searchItem);
+
+        localStorage.setItem(LSApi.getDBPath(['searchHistory', userId]), JSON.stringify(searchHistory));
+    }
+
+    searchRemoved (id: string): void {
+        const userId = this.getUserIdByToken();
+
+        const searchHistory = this.getSearchHistory();
+        const newSearchHistory = searchHistory.filter((s) => s.id !== id);
+
+        localStorage.setItem(LSApi.getDBPath(['searchHistory', userId]), JSON.stringify(newSearchHistory));
+    }
+
+    getSearchHistory (): SearchHistory {
+        const userId = this.getUserIdByToken();
+
+        return JSON.parse(localStorage.getItem(LSApi.getDBPath(['searchHistory', userId])) ?? '[]');
     }
 
     private static getDBPath (segments: string[]): string {

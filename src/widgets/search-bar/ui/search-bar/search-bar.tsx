@@ -46,21 +46,22 @@ export const SearchBar: RC<Props> = ({ className }) => {
         setSagestList(newSagestList);
     };
 
-    const handleSearchButtonClick = (): void => {
+    const searching = (): void => {
         if (searchQuery) {
             setSearchParams(createSearchParams({
                 query: searchQuery
             }));
         }
+        void app.searchHistory.searched(searchQuery);
+    };
+
+    const handleSearchButtonClick = (): void => {
+        searching();
     };
 
     const handleKeypressEvent = (e: React.KeyboardEvent<HTMLInputElement>): void => {
         if (e.key === 'Enter') {
-            if (searchQuery) {
-                setSearchParams(createSearchParams({
-                    query: searchQuery
-                }));
-            }
+            searching();
             e.currentTarget.blur();
         }
     };

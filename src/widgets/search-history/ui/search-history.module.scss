@@ -1,0 +1,16 @@
+.searchHistory {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--on-bg-color);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--box-border-radius);
+    padding: 5px 5px 5px 10px;
+}

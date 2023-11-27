@@ -25,7 +25,7 @@ const MainPage: RC = () => {
     return (
         <div className={c.mainPage}>
             <SearchBar />
-            {query && <div>Результатов по запросу {'"'}{query}{'"'}: {isLoading ? 'поиск...' : postCards?.length}</div>}
+            {query && !isLoading && <div>Результатов по запросу {'"'}{query}{'"'}: {postCards?.length}</div>}
             {postCards && !isLoading
                 ? (
                     <PostCardList

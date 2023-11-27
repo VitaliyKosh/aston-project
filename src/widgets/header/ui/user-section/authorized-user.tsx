@@ -1,8 +1,6 @@
 import c from './authorized-user.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'shared/ui/button/button';
 import { Link } from 'react-router-dom';
 import { privateRoutePaths } from 'app/providers/app-router';
@@ -16,7 +14,22 @@ export const AuthorizedUser: RC = () => {
     return (
         <div className={classNames([c.authorizedUser])}>
             <Link to={privateRoutePaths.FAVORITES}>
-                <FontAwesomeIcon size='xs' icon={faHeart}/>
+                <Button
+                    theme='clear'
+                    size='s'
+                >
+                    Избранное
+                </Button>
+            </Link>
+            <Link
+                to={privateRoutePaths.HISTORY}
+            >
+                <Button
+                    theme='clear'
+                    size='s'
+                >
+                    История
+                </Button>
             </Link>
             <Button
                 theme='clear'

@@ -13,7 +13,7 @@ export interface Props {
     size?: ButtonSize
     type?: ButtonHTMLAttributes<HTMLButtonElement>['type']
     children?: React.ReactNode
-    onClick?: () => void
+    onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 export const Button: RC<Props> = props => {

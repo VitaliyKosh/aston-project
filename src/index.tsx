@@ -12,7 +12,6 @@ const rootElement = document.getElementById('root');
 if (!rootElement) {
     throw new AppError(ReactErrorCodes.NO_ROOT);
 }
-
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(

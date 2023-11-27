@@ -5,6 +5,7 @@ declare global {
     namespace NodeJS {
         interface ProcessEnv {
             DB: 'LS' | 'FIREBASE'
+            API_URL: string
         }
     }
 }

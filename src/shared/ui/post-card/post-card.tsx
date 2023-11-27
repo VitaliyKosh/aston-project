@@ -15,6 +15,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
 import { getLocationWithParams } from 'shared/helpers/get-location';
+import { useFeatureFlags } from 'app/providers/feature-flags-provider';
+import { TelegramWidget } from '../telegram-widget/telegram-widget';
 
 interface Props {
     className?: string
@@ -35,8 +37,10 @@ export const PostCard: RC<Props> = ({
     isFavorite,
     isAuth
 }) => {
-    const [favoriteLocal, setFavoriteLocal] = useState<boolean>(isFavorite);
     const app = getApp();
+    const { isTelegramShareEnabled } = useFeatureFlags();
+
+    const [favoriteLocal, setFavoriteLocal] = useState<boolean>(isFavorite);
 
     const handleFavoriteToggleClick = (): void => {
         if (favoriteLocal) {
@@ -60,17 +64,22 @@ export const PostCard: RC<Props> = ({
                 >
                     <div className={c.title}>{title}</div>
                 </Link>
-                {isAuth && (
-                    <Button
-                        theme="clear"
-                        onClick={handleFavoriteToggleClick}
-                        className={c.favoriteButton}
-                    >
-                        {favoriteLocal
-                            ? (<FontAwesomeIcon icon={favoriteIcon} />)
-                            : (<FontAwesomeIcon icon={notFavoriteIcon} />)}
-                    </Button>
-                )}
+                <div
+                    className={c.widgets}
+                >
+                    {isTelegramShareEnabled && <TelegramWidget id={id} text={title}/>}
+                    {isAuth && (
+                        <Button
+                            theme="clear"
+                            onClick={handleFavoriteToggleClick}
+                            className={c.favoriteButton}
+                        >
+                            {favoriteLocal
+                                ? (<FontAwesomeIcon icon={favoriteIcon} />)
+                                : (<FontAwesomeIcon icon={notFavoriteIcon} />)}
+                        </Button>
+                    )}
+                </div>
             </div>
             <div className={c.imgDescriptionWrapper}>
                 <Link

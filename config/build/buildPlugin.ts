@@ -26,7 +26,8 @@ export function buildPlugins ({ paths, isDev, analyze }: BuildOptions): webpack.
         }),
         new webpack.DefinePlugin({
             'process.env': JSON.stringify({
-                DB: process.env.DB
+                DB: process.env.DB,
+                API_URL: process.env.API_URL
             })
         }),
         ...(

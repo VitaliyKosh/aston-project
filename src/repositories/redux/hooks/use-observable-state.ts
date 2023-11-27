@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
 
-export const useObservableState = <TSelected>(state: () => TSelected): TSelected => {
-    return useSelector(() => state());
+export const useObservableState = <TSelected>(selector: () => TSelected): TSelected => {
+    return useSelector(() => selector());
 };

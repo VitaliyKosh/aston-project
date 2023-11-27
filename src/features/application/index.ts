@@ -1,3 +1,4 @@
+import { type FeatureFlagsModel } from './../../shared/models/feature-flags';
 import { type UserModel } from 'shared/models/user';
 import { reduxStore, type ReduxStoreApi } from 'repositories/redux';
 import { createPostCardListComposition } from '../post-card-list';
@@ -9,16 +10,20 @@ import { createFavoritesComposition } from 'features/favorites/favorites.composi
 import { type FavoritesModel } from 'shared/models/favorites';
 import { type PostModel } from 'shared/models/post';
 import { createPostComposition } from 'features/post';
+import { createFeatureFlagsComposition } from 'features/feature-flags';
+import { FetchApi } from 'shared/lib/network/api-libraries/fetch';
 
 export class Application {
     #reduxStoreApi!: ReduxStoreApi;
     #firebaseApi!: FirebaseApi;
     #lsApi!: LSApi;
+    #fetchApi!: FetchApi;
 
     post!: PostModel;
     postCardList!: PostCardListModel;
     user!: UserModel;
     favorites!: FavoritesModel;
+    featureFlags!: FeatureFlagsModel;
 
     constructor () {
         this.setupApi();
@@ -29,6 +34,9 @@ export class Application {
         this.#reduxStoreApi = reduxStore;
         this.#firebaseApi = new FirebaseApi();
         this.#lsApi = new LSApi();
+        this.#fetchApi = new FetchApi({
+            base: process.env.API_URL
+        });
     }
 
     private setupInputs (): void {
@@ -41,6 +49,9 @@ export class Application {
         });
         this.favorites = createFavoritesComposition({
             api: process.env.DB === 'LS' ? this.#lsApi : this.#firebaseApi
+        });
+        this.featureFlags = createFeatureFlagsComposition({
+            api: this.#fetchApi
         });
     }
 

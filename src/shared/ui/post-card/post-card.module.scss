@@ -10,11 +10,17 @@
 }
 
 .title {
-    font: var(--font-m);
+    font: var(--font-l);
 }
 
 .title:hover {
     text-decoration: underline;
+}
+
+.widgets {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .imgDescriptionWrapper {

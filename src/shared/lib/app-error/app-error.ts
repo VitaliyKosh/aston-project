@@ -20,7 +20,11 @@ export enum PostErrorCodes {
     SEARCH_POST_CARDS_FAIL = 'post/search_post_cards_fail',
 };
 
-export type ApiErrorCodes = BaseErrorCodes | AuthErrorCodes | ReactErrorCodes | PostErrorCodes;
+export enum FeatureFlagsErrorCodes {
+    CANNOT_GET = 'feature_flags/cannot_get'
+};
+
+export type ApiErrorCodes = BaseErrorCodes | AuthErrorCodes | ReactErrorCodes | PostErrorCodes | FeatureFlagsErrorCodes;
 
 export const errorMessages: Record<ApiErrorCodes, string> = {
     [BaseErrorCodes.UNKNOWN_ERROR]: 'Неизвестная ошибка',
@@ -32,7 +36,8 @@ export const errorMessages: Record<ApiErrorCodes, string> = {
     [ReactErrorCodes.NO_ROOT]: 'Ошибка UI',
     [PostErrorCodes.FETCH_POST_FAIL]: 'Невозможно загрузить посты',
     [PostErrorCodes.FETCH_POST_CARDS_FAIL]: 'Невозможно загрузить карточки постов',
-    [PostErrorCodes.SEARCH_POST_CARDS_FAIL]: 'Невозможно осуществить поиск карточек постов'
+    [PostErrorCodes.SEARCH_POST_CARDS_FAIL]: 'Невозможно осуществить поиск карточек постов',
+    [FeatureFlagsErrorCodes.CANNOT_GET]: 'Невозможно загрузить Feature Flags'
 };
 
 export class AppError extends Error {

@@ -19,6 +19,7 @@ const MainPage: RC = () => {
         data: postCards,
         isLoading
     } = useRTKAsyncState(async () => await app.postCardList.searchingCardList(query), { data: [], isLoading: true }, [query]);
+
     const authStatus = useObservableState(() => app.user.getAuthStatus());
 
     return (

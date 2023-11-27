@@ -1,4 +1,4 @@
-import './styles/index.scss';
+import 'app/styles/index.scss';
 import { type RC } from 'shared/types/component';
 import { Suspense } from 'react';
 import { PageLoader } from 'widgets/page-loader';

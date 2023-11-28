@@ -5,8 +5,6 @@ import { UserSection } from './user-section/user-section';
 import { classNames } from 'shared/lib/class-names';
 import { Button } from 'shared/ui/button/button';
 import { useTheme } from 'app/providers/theme-provider';
-import { Link } from 'react-router-dom';
-import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
 import { Theme } from 'shared/types/theme';
 import { useObservableState } from 'repositories/redux/hooks/use-observable-state';
 import { getApp } from 'shared/helpers/get-app';
@@ -27,11 +25,6 @@ export const Header: RC = () => {
                     <div
                         className={c.centralMenu}
                     >
-                        <Link
-                            to={publicRoutePaths.MAIN}
-                        >
-                            Главная
-                        </Link>
                         <Button
                             theme='clear'
                             onClick={toggleTheme}

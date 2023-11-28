@@ -22,12 +22,12 @@ export const App: RC = () => {
                 <Provider store={app.getReduxStore()}>
                     <ThemeProvider>
                         <FeatureFlagsProvider>
-                            <Suspense fallback={<PageLoader />}>
-                                <BrowserRouter>
-                                    <Header />
+                            <BrowserRouter>
+                                <Header />
+                                <Suspense fallback={<PageLoader />}>
                                     <GlobalAppRouter fallback={<PageLoader />} />
-                                </BrowserRouter>
-                            </Suspense>
+                                </Suspense>
+                            </BrowserRouter>
                         </FeatureFlagsProvider>
                     </ThemeProvider>
                 </Provider>

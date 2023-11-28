@@ -42,8 +42,11 @@ export const SignUpForm: RC<Props> = ({ className }) => {
     const [confirmPasswordError, setConfirmPasswordError] = useState<string | undefined>(undefined);
     const [rootError, setRootError] = useState<string | undefined>(undefined);
 
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const onSubmit: SubmitHandler<SignUpFormValues> = async (data) => {
         try {
+            setIsLoading(true);
             setEmailError(undefined);
             setPasswordError(undefined);
             setConfirmPasswordError(undefined);
@@ -57,6 +60,8 @@ export const SignUpForm: RC<Props> = ({ className }) => {
             } else {
                 setRootError(errorMessages[BaseErrorCodes.UNKNOWN_ERROR]);
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -79,6 +84,7 @@ export const SignUpForm: RC<Props> = ({ className }) => {
             header={'Регистрация'}
             rootError={rootError}
             submitText='Зарегистрироваться'
+            isLoading={isLoading}
         >
             <FormInput
                 label="Email"

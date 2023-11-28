@@ -32,8 +32,11 @@ export const SignInForm: RC<Props> = ({ className }) => {
     const [passwordError, setPasswordError] = useState<string | undefined>(undefined);
     const [rootError, setRootError] = useState<string | undefined>(undefined);
 
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const onSubmit: SubmitHandler<SignInFormValues> = async (data) => {
         try {
+            setIsLoading(true);
             setEmailError(undefined);
             setPasswordError(undefined);
 
@@ -46,6 +49,8 @@ export const SignInForm: RC<Props> = ({ className }) => {
             } else {
                 setRootError(errorMessages[BaseErrorCodes.UNKNOWN_ERROR]);
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -66,6 +71,7 @@ export const SignInForm: RC<Props> = ({ className }) => {
             header={'Вход'}
             rootError={rootError}
             submitText='Войти'
+            isLoading={isLoading}
         >
             <FormInput
                 label="Email"

@@ -11,9 +11,18 @@ interface Props {
     rootError?: string
     onSubmit: (e: FormEvent<HTMLFormElement>) => void
     submitText: string
+    isLoading: boolean
 }
 
-export const Form: RC<Props> = ({ className, children, header, rootError, onSubmit, submitText }) => {
+export const Form: RC<Props> = ({
+    className,
+    children,
+    header,
+    rootError,
+    onSubmit,
+    submitText,
+    isLoading
+}) => {
     return (
         <form
             className={classNames([c.form, className])}
@@ -22,7 +31,7 @@ export const Form: RC<Props> = ({ className, children, header, rootError, onSubm
             <div className={c.header}>{header}</div>
             {children}
             <Button className={c.submitButton} type="submit">
-                {submitText}
+                {isLoading ? 'Загрузка...' : submitText}
             </Button>
             {rootError && <div className={c.error}>{rootError}</div>}
         </form>

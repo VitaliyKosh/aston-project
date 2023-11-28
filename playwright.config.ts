@@ -8,7 +8,7 @@ export default defineConfig({
     workers: process.env.CI ? 1 : undefined,
     reporter: 'html',
     use: {
-        baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3010',
+        baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
         trace: 'on-first-retry'
     },
 
@@ -30,8 +30,8 @@ export default defineConfig({
     ],
 
     webServer: {
-        command: 'npm start',
-        url: 'http://localhost:3010',
+        command: 'npm run serve',
+        url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI
     }
 });

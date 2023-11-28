@@ -5,9 +5,9 @@ test('guest test', async ({ page, baseURL }) => {
         throw new Error('no base url');
     }
 
-    await page.goto(baseURL);
+    await page.goto('https://aston-iphone.netlify.app/');
 
-    await page.waitForTimeout(5000);
+    // await page.waitForTimeout(5000);
 
     console.log(await page.content());
     

@@ -19,6 +19,6 @@ export class FavoritesApiService extends ApiService {
     }
 
     public async readFavorites (): Promise<Favorites> {
-        return this.apiRepository.readFavorites();
+        return await this.apiRepository.readFavorites();
     }
 }

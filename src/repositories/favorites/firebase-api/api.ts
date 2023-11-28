@@ -14,7 +14,7 @@ export class FavoritesFirebaseApiRepository extends FirebaseApiRepository implem
 
     favoriteRemoved (id: FavoriteItem): void {
         try {
-            this.api.favoriteRemoved(id);
+            void this.api.favoriteRemoved(id);
         } catch (e) {
             throw getSafeError(e);
         }

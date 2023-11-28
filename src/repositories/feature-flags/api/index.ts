@@ -10,8 +10,6 @@ export class FeatureFlagsFetchApiRepository extends FetchApiRepository implement
                 url: 'feature-flags'
             });
         } catch (e) {
-            console.log(e);
-            
             throw new AppError(FeatureFlagsErrorCodes.CANNOT_GET);
         }
     }

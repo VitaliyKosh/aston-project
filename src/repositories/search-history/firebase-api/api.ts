@@ -14,7 +14,7 @@ export class SearchHistoryFirebaseApiRepository extends FirebaseApiRepository im
 
     searchRemoved (id: string): void {
         try {
-            this.api.searchRemoved(id);
+            void this.api.searchRemoved(id);
         } catch (e) {
             throw getSafeError(e);
         }

@@ -19,6 +19,6 @@ export class SearchHistoryApiService extends ApiService {
     }
 
     public async getSearchHistory (): Promise<SearchHistory> {
-        return this.apiRepository.getSearchHistory();
+        return await this.apiRepository.getSearchHistory();
     }
 }

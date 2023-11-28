@@ -33,6 +33,10 @@ export const SearchHistory: RC<Props> = ({ className }) => {
         void getSearchHistory();
     }, []);
 
+    if (searchHistory.length < 1) {
+        return <div className={c.empty}>Пусто...</div>;
+    }
+
     return (
         <div className={classNames([c.searchHistory, className])}>
             {searchHistory.map(s => {

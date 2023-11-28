@@ -1,7 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test('guest test', async ({ page, context }) => {
-    await page.goto('http://localhost:3010');
+test('guest test', async ({ page, baseURL }) => {
+    if (!baseURL) {
+        throw new Error('no base url');
+    }
+
+    await page.goto(baseURL);
 
     await page.getByPlaceholder('Поиск').click();
     // await page.getByPlaceholder('Поиск').fill('3gs');

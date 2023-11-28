@@ -7,6 +7,8 @@ test('guest test', async ({ page, baseURL }) => {
 
     await page.goto(baseURL);
 
+    await page.waitForTimeout(5000);
+
     console.log(await page.content());
     
 

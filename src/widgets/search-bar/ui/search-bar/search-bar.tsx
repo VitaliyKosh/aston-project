@@ -10,6 +10,7 @@ import { getSagestList } from 'widgets/search-bar/lib/get-sagest-list';
 import { useDebounce } from 'widgets/search-bar/hooks/use-debounce';
 import { createSearchParams, useSearchParams } from 'react-router-dom';
 import { useTimeoutLoading } from 'shared/hooks/use-timeout-loading';
+import { AuthStatus } from 'shared/models/user';
 
 interface Props {
     className?: string
@@ -52,7 +53,9 @@ export const SearchBar: RC<Props> = ({ className }) => {
                 query: searchQuery
             }));
         }
-        void app.searchHistory.searched(searchQuery);
+        if (app.user.getAuthStatus() === AuthStatus.SignedIn) {
+            void app.searchHistory.searched(searchQuery);
+        }
     };
 
     const handleSearchButtonClick = (): void => {

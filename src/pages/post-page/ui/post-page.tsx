@@ -64,7 +64,7 @@ const PostPage: RC<Props> = ({ className }) => {
                 <SpecificationList post={post}/>
             </div>
             <PageTitle className={c.title}>{postDictionary.description}</PageTitle>
-            <div>{post.description}</div>
+            <div className={c.description}>{post.description}</div>
         </div>
     );
 };

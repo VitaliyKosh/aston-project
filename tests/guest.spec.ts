@@ -7,6 +7,9 @@ test('guest test', async ({ page, baseURL }) => {
 
     await page.goto(baseURL);
 
+    console.log(await page.content());
+    
+
     await page.getByPlaceholder('Поиск').click();
     // await page.getByPlaceholder('Поиск').fill('3gs');
     // await page.getByPlaceholder('Поиск').press('Enter');

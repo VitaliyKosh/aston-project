@@ -5,7 +5,7 @@ let npmStart: childProcess.ChildProcessWithoutNullStreams;
 
 test.beforeAll(async () => {
     await new Promise<void>((resolve, reject) => {
-        npmStart = childProcess.spawn('npm', ['start']);
+        npmStart = childProcess.spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ['start']);
         npmStart.stdout.on('data', (data: string) => {
             // console.log(`stdout: ${data}`);
             if (data.includes('successfully')) {

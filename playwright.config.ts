@@ -8,7 +8,7 @@ export default defineConfig({
     workers: process.env.CI ? 1 : undefined,
     reporter: 'html',
     use: {
-        baseURL: 'http://127.0.0.1:3010',
+        // baseURL: 'http://127.0.0.1:3010',
         trace: 'on-first-retry'
     },
 
@@ -30,8 +30,8 @@ export default defineConfig({
     ],
 
     webServer: {
-        command: 'npm run start',
-        url: 'http://127.0.0.1:3010',
-        reuseExistingServer: !process.env.CI
+        command: 'npm run start'
+        // url: 'http://127.0.0.1:3010',
+        // reuseExistingServer: !process.env.CI
     }
 });

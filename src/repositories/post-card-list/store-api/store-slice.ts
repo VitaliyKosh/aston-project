@@ -4,7 +4,6 @@ import { type PostCard } from 'shared/models/post-card-list';
 
 export const postCardListSlice = createApi({
     reducerPath: 'postCardListAPI',
-    // TODO to env
     baseQuery: fetchBaseQuery({ baseUrl: process.env.API_URL }),
     tagTypes: ['PostCardList'],
     refetchOnMountOrArgChange: true,

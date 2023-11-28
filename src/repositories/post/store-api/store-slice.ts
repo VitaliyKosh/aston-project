@@ -4,7 +4,6 @@ import { type Post } from 'shared/models/post';
 
 export const postSlice = createApi({
     reducerPath: 'postAPI',
-    // TODO to env
     baseQuery: fetchBaseQuery({ baseUrl: process.env.API_URL }),
     tagTypes: ['Post'],
     refetchOnMountOrArgChange: true,

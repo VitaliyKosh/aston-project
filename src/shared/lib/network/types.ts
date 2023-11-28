@@ -1,4 +1,3 @@
-// TODO deprecated
 export type RequestMethod = 'get' | 'post';
 export type RequestPayload = Record<string, any>;
 

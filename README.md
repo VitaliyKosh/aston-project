@@ -1,42 +1,41 @@
 # Aston Project
 
-Проект посвящен сравнению всех моделей iPhone
+Проект посвящен сравнению всех моделей iPhone.
+
+[Посмотреть проект](https://aston-iphone.netlify.app)
+
 
 # Обязательные требования
-- [x] использован LocalStorage
+- [x] использован LocalStorage [LSApi](https://github.com/VitaliyKosh/aston-project/tree/main/src/repositories/local-storage/ls-api.ts)
 - [x] используются функциональные компоненты с хуками
-- [x] есть разделение на умные и глупые компоненты 
-- [x] есть рендеринг списков
-- [x] реализована хотя бы одна форма
-- [x] есть применение Контекст API
-- [x] есть применение предохранителя
-- [x] есть хотя бы один кастомный хук
-- [x] хотя бы несколько компонентов используют PropTypes 
-- [x] есть debounce
-- [x] есть применение lazy + Suspense
-- [x] используем Modern Redux with Redux Toolkit 
-- [x] используем слайсы
-- [x] есть кастомная мидлвара
-- [x] используется RTK Query
-- [x] используется Transforming Responses
+- [x] есть разделение на умные и глупые компоненты [Глупые в shared](https://github.com/VitaliyKosh/aston-project/tree/main/src/shared/ui), [Умные в widgets](https://github.com/VitaliyKosh/aston-project/tree/main/src/widgets), [Умные в pages](https://github.com/VitaliyKosh/aston-project/tree/main/src/pages)
+- [x] есть рендеринг списков [PostCardList](https://github.com/VitaliyKosh/aston-project/tree/main/src/widgets/post-card-list/ui/post-card-list.tsx)
+- [x] реализована хотя бы одна форма [Form](https://github.com/VitaliyKosh/aston-project/tree/main/src/widgets/auth-form/ui/form/form.tsx), [SignInForm](https://github.com/VitaliyKosh/aston-project/tree/main/src/widgets/auth-form/ui/sign-in-form/sign-in-form.tsx)
+- [x] есть применение Контекст API [ThemeProvider](https://github.com/VitaliyKosh/aston-project/tree/main/src/app/providers/theme-provider/ui/theme-provider.tsx)
+- [x] есть применение предохранителя [ErrorBoundary](https://github.com/VitaliyKosh/aston-project/tree/main/src/app/providers/error-boundary/ui/error-boundary.tsx)
+- [x] есть хотя бы один кастомный хук [shared/hooks](https://github.com/VitaliyKosh/aston-project/tree/main/src/shared/hooks)
+- [x] хотя бы несколько компонентов используют PropTypes [Button](https://github.com/VitaliyKosh/aston-project/tree/main/src/shared/ui/button/button.tsx), [PageTitle](https://github.com/VitaliyKosh/aston-project/tree/main/src/shared/ui/page-title/page-title.tsx)
+- [x] есть debounce [useDebounce](https://github.com/VitaliyKosh/aston-project/tree/main/src/widgets/search-bar/hooks/use-debounce.ts)
+- [x] есть применение [lazy](https://github.com/VitaliyKosh/aston-project/tree/main/src/pages/auth-page/ui/auth-page.async.tsx) + [Suspense](https://github.com/VitaliyKosh/aston-project/tree/main/src/app/app/ui/app.tsx)
+- [x] используем [Modern Redux with Redux Toolkit](https://github.com/VitaliyKosh/aston-project/tree/main/src/repositories/redux/redux.ts)
+- [x] используем слайсы [userSlice](https://github.com/VitaliyKosh/aston-project/tree/main/src/repositories/user/store-api/store-slice.ts)
+- [x] есть кастомная мидлвара [listenerMiddleware](https://github.com/VitaliyKosh/aston-project/tree/main/src/repositories/redux/middlewares.ts)
+- [x] используется RTK Query [postCardListSlice](https://github.com/VitaliyKosh/aston-project/tree/main/src/repositories/post-card-list/store-api/store-slice.ts)
+- [x] используется [Transforming Responses](https://github.com/VitaliyKosh/aston-project/tree/main/src/repositories/post-card-list/store-api/store-slice.ts)
 # Необязательные требования
 - [x] использование TypeScript
-- [x] подключен storybook
-- [x] использование Firebase
-- [x] низкая связанность клиентского кода (LS + Firebase) (ну и в целом все приложение)
+- [x] подключен storybook [button.stories.tsx](https://github.com/VitaliyKosh/aston-project/tree/main/src/shared/ui/button/button.stories.tsx)
+- [x] использование Firebase [FirebaseApi](https://github.com/VitaliyKosh/aston-project/tree/main/src/repositories/firebase/firebase-api.ts)
+- [x] низкая связанность клиентского кода (LS + Firebase) (ну и в целом все приложение, архитектура описана ниже)
 - [x] настроен CI/CD
-- [ ] реализована виртуализация списков
-- [ ] используются мемоизированные селекторы
-- [ ] используется нормализованная структура стейта
-- [ ] проведена оптимизация приложения
-- [x] Feature Flags
-- [x] тесты
-- [x] связь UI и бизнес-логики построена не через команды, а через события. 
-- [x] Project Console API + чистая архитектура
+- [x] Feature Flags [FeatureFlagsFetchApiRepository](https://github.com/VitaliyKosh/aston-project/tree/main/src/repositories/feature-flags/api/api.ts)
+- [x] E2E тесты [guest test](https://github.com/VitaliyKosh/aston-project/tree/main/tests/guest.spec.ts), [user test](https://github.com/VitaliyKosh/aston-project/tree/main/tests/user.spec.ts)
+- [x] связь UI и бизнес-логики построена не через команды, а через события. [app.user.signedOut()](https://github.com/VitaliyKosh/aston-project/tree/main/src/widgets/header/ui/user-section/authorized-user.tsx)
+- [x] Project Console API + чистая архитектура (описано ниже)
 
-Для проекта создан собственный api на Nodejs и Express, который размещен на `https://iphone-api.koshelkov.ru/api`
+Для проекта создан собственный api на Nodejs и Express, который размещен на [iphone-api.koshelkov.ru/api](https://iphone-api.koshelkov.ru/api)
 
-Настроен CD на `https://aston-iphone.netlify.app`
+Настроен CD на [aston-iphone.netlify.app](https://aston-iphone.netlify.app)
 
 ## Описание архитектуры приложения
 

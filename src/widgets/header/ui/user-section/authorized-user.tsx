@@ -7,8 +7,9 @@ import { privateRoutePaths } from 'app/providers/app-router';
 import { getApp } from 'shared/helpers/get-app';
 
 export const AuthorizedUser: RC = () => {
+    const app = getApp();
     const handleExitClick = (): void => {
-        void getApp().user.signedOut();
+        void app.user.signedOut();
     };
 
     return (

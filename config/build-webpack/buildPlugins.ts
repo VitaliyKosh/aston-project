@@ -4,7 +4,12 @@ import { type BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import dotenv from 'dotenv';
 import CopyPlugin from 'copy-webpack-plugin';
+
+dotenv.config({
+    path: './.env'
+});
 
 export function buildPlugins ({ paths, isDev, analyze }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
@@ -24,6 +29,7 @@ export function buildPlugins ({ paths, isDev, analyze }: BuildOptions): webpack.
             'process.env': JSON.stringify({
                 DB: process.env.DB,
                 API_URL: process.env.API_URL,
+                CLIENT_URL: process.env.CLIENT_URL,
                 FB_API_KEY: process.env.FB_API_KEY,
                 FB_AUTH_DOMAIN: process.env.FB_AUTH_DOMAIN,
                 FB_PROJECT_ID: process.env.FB_PROJECT_ID,

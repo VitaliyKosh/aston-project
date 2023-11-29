@@ -13,7 +13,10 @@ export class SearchHistoryFeature implements SearchHistoryModel {
     }
 
     async searched (query: string): Promise<void> {
-        void this.#apiService.searched(query);
+        const history = await this.getSearchHistory();
+        if (!history.some((s) => s.query === query)) {
+            void this.#apiService.searched(query);
+        }
     }
 
     async searchRemoved (id: string): Promise<void> {

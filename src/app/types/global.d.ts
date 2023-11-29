@@ -6,6 +6,7 @@ declare global {
         interface ProcessEnv {
             DB: 'LS' | 'FIREBASE'
             API_URL: string
+            CLIENT_URL: string
             FB_API_KEY: string
             FB_AUTH_DOMAIN: string
             FB_PROJECT_ID: string

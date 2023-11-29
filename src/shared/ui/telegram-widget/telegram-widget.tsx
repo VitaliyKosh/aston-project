@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const TelegramWidget: RC<Props> = ({ className, id, text }) => {
-    const url = encodeURIComponent(process.env.API_URL + getLocationWithParams(publicRoutePaths.POST, { id }));
+    const url = encodeURIComponent(process.env.CLIENT_URL + getLocationWithParams(publicRoutePaths.POST, { id }));
     const urlText = encodeURIComponent(text);
 
     return (

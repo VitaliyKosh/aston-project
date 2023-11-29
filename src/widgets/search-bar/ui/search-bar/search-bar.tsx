@@ -19,9 +19,9 @@ interface Props {
 export const SearchBar: RC<Props> = ({ className }) => {
     const app = getApp();
 
-    const [, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
 
-    const [searchQuery, setSearchQuery] = useState<string>('');
+    const [searchQuery, setSearchQuery] = useState<string>(searchParams.get('query') || '');
     const [sagestList, setSagestList] = useState<Sagest[]>([]);
     const { isTimeoutLoading, setIsRealLoading } = useTimeoutLoading(100);
     const debouncedSearchTerm = useDebounce(searchQuery, 500);

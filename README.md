@@ -41,13 +41,17 @@
 
 Доступ к точке входа в приложение можно осуществить через объект `app` в консоли браузера.
 
-Внутри объекта `app` можно найти фичи:
-- post: PostModel;
-- postCardList: PostCardListModel;
-- user: UserModel;
-- favorites: FavoritesModel;
-- featureFlags: FeatureFlagsModel;
-- searchHistory: SearchHistoryModel;
+Объект `app` реализует интерфейс Application:
+```
+Application {
+    post: PostModel
+    postCardList: PostCardListModel
+    user: UserModel
+    favorites: FavoritesModel
+    featureFlags: FeatureFlagsModel
+    searchHistory: SearchHistoryModel
+}
+```
 ### Модели данных
 - PostModel
 ```

@@ -12,7 +12,6 @@ export const PageError: RC<Props> = ({ info }) => {
         location.reload();
     };
 
-    // TODO оформить
     return (
         <div
             className={classNames([c.pageError])}

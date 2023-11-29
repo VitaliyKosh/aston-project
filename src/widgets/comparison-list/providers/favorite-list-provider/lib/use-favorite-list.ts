@@ -1,7 +1,7 @@
 import { useContext, useMemo } from 'react';
 import { FavoriteListContext } from './favorite-list-context';
 import { getRows } from 'widgets/comparison-list/lib/get-rows';
-import { type Row } from 'widgets/comparison-list/types';
+import { type Row } from 'widgets/comparison-list/types/types';
 
 interface UseThemeResult {
     rows: Row[]

@@ -1,6 +1,6 @@
 import { getSafeError } from 'shared/lib/app-error/app-error';
 import { type SearchHistoryApiRepository } from '../types';
-import { FirebaseApiRepository } from 'repositories/firebase';
+import { FirebaseApiRepository } from 'repositories/firebase/firebase-api';
 import { type SearchHistory } from 'shared/models/search-history';
 
 export class SearchHistoryFirebaseApiRepository extends FirebaseApiRepository implements SearchHistoryApiRepository {

@@ -1,7 +1,7 @@
 import { AppError, FeatureFlagsErrorCodes } from 'shared/lib/app-error/app-error';
 import { type FeatureFlags } from 'shared/models/feature-flags';
 import { type FeatureFlagsApiRepository } from '../types';
-import { FetchApiRepository } from 'repositories/fetch';
+import { FetchApiRepository } from 'repositories/fetch/fetch-api';
 
 export class FeatureFlagsFetchApiRepository extends FetchApiRepository implements FeatureFlagsApiRepository {
     public async getFeatureFlags (): Promise<FeatureFlags> {

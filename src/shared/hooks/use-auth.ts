@@ -5,6 +5,6 @@ export function useAuth (): void {
     const app = getApp();
 
     useEffect(() => {
-        void app.user.validateToken();
+        void app.user.authChecked();
     }, []);
 };

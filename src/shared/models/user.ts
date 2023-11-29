@@ -13,7 +13,6 @@ export interface UserModel {
     signedUp: (email: string, password: string) => Promise<void>
     signedIn: (email: string, password: string) => Promise<void>
     signedOut: () => Promise<void>
-    getUser: () => User
     getAuthStatus: () => AuthStatus
-    validateToken: () => Promise<void>
+    authChecked: () => Promise<void>
 };

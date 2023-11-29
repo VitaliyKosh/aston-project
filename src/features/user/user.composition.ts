@@ -3,11 +3,11 @@ import { UserApiService, UserTokenService } from 'services/user';
 import { UserFirebaseApiRepository } from 'repositories/user/api/api';
 import { UserStoreApiService } from 'services/user/store-api';
 import { ReduxUserStoreApiRepository } from 'repositories/user/store-api/api';
-import { type FirebaseApi } from 'repositories/firebase';
-import { type ReduxStoreApi } from 'repositories/redux';
+import { type FirebaseApi } from 'repositories/firebase/firebase-api';
+import { type ReduxStoreApi } from 'repositories/redux/redux';
 import { LSApi } from 'repositories/local-storage';
 import { UserLSApiRepository } from 'repositories/user';
-import { UserLSTokenRepository } from 'repositories/user/local-storage-token/token';
+import { UserLSTokenRepository } from 'repositories/user/local-storage-token-api/api';
 
 interface Dependencies {
     api: FirebaseApi | LSApi

@@ -9,7 +9,7 @@ import { queueMacrotask } from 'shared/helpers/queue-macrotask';
 import { Loader } from 'shared/ui/loader/loader';
 import { Link } from 'react-router-dom';
 import { getLocationWithParams } from 'shared/helpers/get-location';
-import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
+import { publicRoutePaths } from 'app/providers/app-router';
 
 interface Props {
     className?: string

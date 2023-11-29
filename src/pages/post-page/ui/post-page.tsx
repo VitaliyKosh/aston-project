@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { getApp } from 'shared/helpers/get-app';
 import { type Post } from 'shared/models/post';
 import { PageTitle } from 'shared/ui/page-title/page-title';
-import { SpecificationList } from 'shared/specification-list';
+import { SpecificationList } from 'widgets/specification-list';
 import { postDictionary } from 'shared/dictionaries/post';
 import { PageLoader } from 'widgets/page-loader';
 import { AddToFavorite } from 'widgets/add-to-favorite';

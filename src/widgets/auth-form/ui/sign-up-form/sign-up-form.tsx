@@ -10,10 +10,10 @@ import {
     useConfirmPasswordRegisterProps,
     useEmailRegisterProps,
     usePasswordRegisterProps
-} from 'widgets/auth-form/lib/use-register-props';
+} from 'widgets/auth-form/hooks/use-register-props';
 import { getApp } from 'shared/helpers/get-app';
 import { useNavigate } from 'react-router-dom';
-import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
+import { publicRoutePaths } from 'app/providers/app-router';
 import {
     AppError,
     BaseErrorCodes,

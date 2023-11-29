@@ -1,6 +1,6 @@
 import { getSafeError } from 'shared/lib/app-error/app-error';
 import { type FavoritesApiRepository } from '../types';
-import { FirebaseApiRepository } from 'repositories/firebase/';
+import { FirebaseApiRepository } from 'repositories/firebase/firebase-api';
 import { type Favorites, type FavoriteItem } from 'shared/models/favorites';
 
 export class FavoritesFirebaseApiRepository extends FirebaseApiRepository implements FavoritesApiRepository {

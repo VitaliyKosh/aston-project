@@ -2,7 +2,7 @@ import { FavoritesApiService } from 'services/favorites';
 import { FavoritesFeature } from './favorites';
 import { type LSApi } from 'repositories/local-storage/ls-api';
 import { FavoritesLSApiRepository } from 'repositories/favorites';
-import { FirebaseApi } from 'repositories/firebase';
+import { FirebaseApi } from 'repositories/firebase/firebase-api';
 import { FavoritesFirebaseApiRepository } from 'repositories/favorites/firebase-api/api';
 
 interface Dependencies {

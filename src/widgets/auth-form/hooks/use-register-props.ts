@@ -5,7 +5,7 @@ import {
     type FieldValues,
     type UseFormWatch
 } from 'react-hook-form';
-import { formErrorMessages, formRegExpressions } from '../types';
+import { formErrorMessages, formRegExpressions } from '../types/types';
 
 export const useEmailRegisterProps = <T extends FieldValues>(
     name: Path<T>,

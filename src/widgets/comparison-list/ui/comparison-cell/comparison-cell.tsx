@@ -2,7 +2,7 @@ import c from './comparison-cell.module.scss';
 import { type RC } from 'shared/types/component';
 import { ImageCell } from '../image-cell/image-cell';
 import { SpecificationCell } from '../specifications-cell/specifications-cell';
-import { type Cell } from 'widgets/comparison-list/types';
+import { type Cell } from 'widgets/comparison-list/types/types';
 import { TitleCell } from '../title-cell/title-cell';
 
 interface Props {

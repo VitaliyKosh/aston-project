@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
+import { publicRoutePaths } from 'app/providers/app-router';
 import c from './telegram-widget.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';

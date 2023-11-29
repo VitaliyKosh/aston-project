@@ -1,6 +1,6 @@
 import { type UserState, userSignedIn, userSignedOut, userSignedUp, userSignsIn, userSignsUp } from './store-slice';
 import { type AuthStatus, type User } from 'shared/models/user';
-import { ReduxApiRepository } from 'repositories/redux';
+import { ReduxApiRepository } from 'repositories/redux/redux';
 import { type UserStoreApiRepository } from '../types';
 
 export class ReduxUserStoreApiRepository extends ReduxApiRepository implements UserStoreApiRepository {

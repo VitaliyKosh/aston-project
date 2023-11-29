@@ -1,4 +1,4 @@
-import React, { type ErrorInfo } from 'react';
+import React from 'react';
 import { PageError } from 'widgets/page-error';
 
 interface Props {
@@ -20,7 +20,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
         return { hasError: true };
     }
 
-    componentDidCatch (error: Error, errorInfo: ErrorInfo): void {
+    componentDidCatch (error: Error): void {
         this.setState({ hasError: true, info: error.message });
     }
 

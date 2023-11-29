@@ -1,6 +1,6 @@
 import { App } from 'app/app';
 import { ErrorBoundary } from 'app/providers/error-boundary';
-import { Application } from 'features/application';
+import { Application } from 'features/application/application';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { AppError, ReactErrorCodes } from 'shared/lib/app-error/app-error';

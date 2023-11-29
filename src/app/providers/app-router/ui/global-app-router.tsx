@@ -3,7 +3,8 @@ import { AppRouter } from './app-router';
 import { AuthStatus } from 'shared/models/user';
 import { useObservableState } from 'repositories/redux/hooks/use-observable-state';
 import { type ReactElement } from 'react';
-import { privateRouteConfig, publicRouteConfig } from '../config';
+import { publicRouteConfig } from '../config/route-configs/public';
+import { privateRouteConfig } from '../config/route-configs/private';
 import { getApp } from 'shared/helpers/get-app';
 
 interface Props {
@@ -18,9 +19,7 @@ export const GlobalAppRouter: RC<Props> = ({ fallback }) => {
         case AuthStatus.Pending:
             return fallback;
         case AuthStatus.SignedIn:
-            return (
-                <AppRouter routeConfigs={[privateRouteConfig, publicRouteConfig]} />
-            );
+            return <AppRouter routeConfigs={[privateRouteConfig, publicRouteConfig]} />;
         default:
             return <AppRouter routeConfigs={[publicRouteConfig]} />;
     }

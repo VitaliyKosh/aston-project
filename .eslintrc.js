@@ -12,6 +12,7 @@ module.exports = {
     },
     plugins: ['react'],
     rules: {
+        '@typescript-eslint/no-extraneous-class': 'off',
         semi: 'off',
         '@typescript-eslint/semi': ['error', 'always'],
         'react/jsx-indent': [2, 4],
@@ -32,14 +33,7 @@ module.exports = {
         'react/prop-types': 'off',
         '@typescript-eslint/prefer-nullish-coalescing': 0,
         '@typescript-eslint/strict-boolean-expressions': 0,
-        // '@typescript-eslint/space-before-function-paren': 0,
         'react/react-in-jsx-scope': 0,
-        // '@typescript-eslint/consistent-type-imports': 0,
-        // 'no-underscore-dangle': 0,
-        // '@typescript-eslint/no-floating-promises': 0,
-        // '@typescript-eslint/naming-convention': 0,
-        // '@typescript-eslint/no-redeclare': 0,
-        // '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/no-useless-constructor': 0,
         'constructor-super': 'error', // проверка вызова super() в конструкторе
         'for-direction': 'error', // проверка цикла for на конечное число итераций

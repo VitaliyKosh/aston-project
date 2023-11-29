@@ -1,5 +1,5 @@
-import { type ReduxStoreApi } from 'repositories/redux';
-import { type FirebaseApi } from './firebase';
+import { type ReduxStoreApi } from 'repositories/redux/redux';
+import { type FirebaseApi } from './firebase/firebase-api';
 import { type LSApi } from './local-storage/ls-api';
 import { type FetchApi } from 'shared/lib/network/api-libraries/fetch';
 

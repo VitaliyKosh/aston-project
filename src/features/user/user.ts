@@ -1,4 +1,4 @@
-import { type AuthStatus, type User, type UserModel } from 'shared/models/user';
+import { type AuthStatus, type UserModel } from 'shared/models/user';
 import { getSafeError } from 'shared/lib/app-error/app-error';
 import { type UserStoreApiService, type UserApiService, type UserTokenService } from 'services/user';
 
@@ -52,15 +52,11 @@ export class UserFeature implements UserModel {
         }
     }
 
-    getUser (): User {
-        return this.#storeApiService.getUser();
-    }
-
     getAuthStatus (): AuthStatus {
         return this.#storeApiService.getAuthStatus();
     }
 
-    async validateToken (): Promise<void> {
+    async authChecked (): Promise<void> {
         try {
             const token = this.#tokenService.readToken();
 

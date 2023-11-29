@@ -1,5 +1,5 @@
 import { postSlice } from './store-slice';
-import { ReduxApiRepository } from 'repositories/redux';
+import { ReduxApiRepository } from 'repositories/redux/redux';
 import { AppError, PostErrorCodes } from 'shared/lib/app-error/app-error';
 import { type Post } from 'shared/models/post';
 

@@ -2,7 +2,7 @@ import c from './post-card-list.module.scss';
 import { classNames } from 'shared/lib/class-names';
 import { type RC } from 'shared/types/component';
 import { type PostCard as TPostCard } from 'shared/models/post-card-list';
-import { PostCard } from 'widgets/post-card/post-card';
+import { PostCard } from 'widgets/post-card/ui/post-card';
 import { useFavorites } from 'shared/hooks/use-favorites';
 
 interface Props {

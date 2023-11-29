@@ -1,4 +1,4 @@
-import { type Application } from 'features/application';
+import { type Application } from 'features/application/application';
 
 declare global {
     interface Window { app: Application }
@@ -17,4 +17,4 @@ declare global {
     }
 }
 
-export {};
+export { };

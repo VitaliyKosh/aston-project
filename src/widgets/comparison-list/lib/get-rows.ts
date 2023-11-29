@@ -1,5 +1,5 @@
 import { type Post } from 'shared/models/post';
-import { type Row, keys } from '../types';
+import { type Row, keys } from '../types/types';
 import { isObjectKey } from 'shared/helpers/is-object-key';
 
 export const getRows = (list: Post[]): Row[] => {

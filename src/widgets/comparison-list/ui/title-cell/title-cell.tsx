@@ -5,7 +5,7 @@ import { type RC } from 'shared/types/component';
 import { Button } from 'shared/ui/button/button';
 import { useFavoriteRows } from 'widgets/comparison-list/providers/favorite-list-provider';
 import { Link } from 'react-router-dom';
-import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
+import { publicRoutePaths } from 'app/providers/app-router';
 import { getLocationWithParams } from 'shared/helpers/get-location';
 
 interface Props {

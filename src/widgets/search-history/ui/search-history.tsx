@@ -6,7 +6,7 @@ import { getApp } from 'shared/helpers/get-app';
 import { type SearchHistory as SearchHistoryType } from 'shared/models/search-history';
 import { Link } from 'react-router-dom';
 import { getLocationWithParams } from 'shared/helpers/get-location';
-import { publicRoutePaths } from 'app/providers/app-router/config/route-configs';
+import { publicRoutePaths } from 'app/providers/app-router';
 import { Button } from 'shared/ui/button/button';
 
 interface Props {

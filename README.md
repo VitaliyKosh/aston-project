@@ -37,6 +37,69 @@
 
 Настроен CD на [aston-iphone.netlify.app](https://aston-iphone.netlify.app)
 
+## Project Console API
+
+Доступ к точке входа в приложение можно осуществить через объект app в консоли браузера.
+
+Внутри объекта можно найти фичи:
+- post: PostModel;
+- postCardList: PostCardListModel;
+- user: UserModel;
+- favorites: FavoritesModel;
+- featureFlags: FeatureFlagsModel;
+- searchHistory: SearchHistoryModel;
+### Модели данных
+- PostModel
+```
+PostModel {
+    getPost: (count: string) => Promise<Post>
+}
+```
+- PostCardListModel
+```
+PostCardListModel {
+    getCardList: (count: number) => Promise<PostCard[]>
+    searchingCardList: (query: string | null | undefined, limit?: number) => Promise<DispatchResult<PostCard[]>>
+}
+
+DispatchResult<T> {
+    data?: T
+    isLoading: boolean
+}
+```
+- UserModel
+```
+UserModel {
+    signedUp: (email: string, password: string) => Promise<void>
+    signedIn: (email: string, password: string) => Promise<void>
+    signedOut: () => Promise<void>
+    getAuthStatus: () => AuthStatus
+    authChecked: () => Promise<void>
+}
+```
+- FavoritesModel
+```
+FavoritesModel {
+    favoriteAdded: (id: FavoriteItem) => Promise<void>
+    favoriteRemoved: (id: FavoriteItem) => Promise<void>
+    readFavorites: () => Promise<Favorites>
+}
+```
+- FeatureFlagsModel
+```
+FeatureFlagsModel {
+    getFeatureFlags: () => Promise<FeatureFlags>
+}
+```
+- SearchHistoryModel
+```
+SearchHistoryModel {
+    searched: (query: string) => Promise<void>
+    searchRemoved: (id: string) => Promise<void>
+    getSearchHistory: () => Promise<SearchHistory>
+}
+```
+
 ## Описание архитектуры приложения
 
 Приложение построено на комбинации архитектурных подходов **FSD** и **чистой архитектуры**. 
